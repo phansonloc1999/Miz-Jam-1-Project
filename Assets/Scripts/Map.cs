@@ -21,11 +21,6 @@ public class Map : MonoBehaviour
     [SerializeField]
     private float TILE_HEIGHT = 1;
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     public void initTiles()
     {
         tiles = new GameObject[NUM_OF_TILE_ROW, NUM_OF_TILE_COLUMN];

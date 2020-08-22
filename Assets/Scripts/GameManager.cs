@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
 
         player1Master.moveToTile(map.getTile(0, 0));
         player2Master.moveToTile(map.getTile(1, 1));
+
+        player1Master.summonSlaveAt(0, 3, 3);
     }
 
     private static void changeTurn()
@@ -27,5 +29,4 @@ public class GameManager : MonoBehaviour
         if (currentPlayerTurn == PLAYER_TURN.PLAYER_1) currentPlayerTurn = PLAYER_TURN.PLAYER_2;
         else currentPlayerTurn = PLAYER_TURN.PLAYER_1;
     }
-
 }
