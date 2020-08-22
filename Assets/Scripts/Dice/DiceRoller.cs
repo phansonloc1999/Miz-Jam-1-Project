@@ -19,7 +19,7 @@ namespace DiceSystem
 
         public event Action<Face> OnDiceRollSuccessful;
 
-        private void Start()
+        private void Awake()
         {
             _rigidbody = gameObject.GetComponent<Rigidbody>();
             _diceComponent = gameObject.GetComponent<Dice>();
@@ -40,7 +40,6 @@ namespace DiceSystem
 
         public void TurnOff()
         {
-            Debug.Log("turn off");
             gameObject.SetActive(false);
             _thown = false;
             _hasLanded = false;
@@ -49,7 +48,8 @@ namespace DiceSystem
 
         public void TossDice()
         {
-            if(!_thown && !_hasLanded)
+            gameObject.SetActive(true);
+            if (!_thown && !_hasLanded)
             {
                 _thown = true;
                 _rigidbody.useGravity = true;

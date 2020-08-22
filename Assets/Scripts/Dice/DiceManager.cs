@@ -6,6 +6,7 @@ using Face = DiceSystem.Face;
 public class DiceManager : MonoBehaviour
 {
     [SerializeField] private GameObject _dice;
+    [SerializeField] private GameObject _dicePrefab;
     private DiceRoller _diceRoller;
     public Face _face;
     void Awake()
@@ -13,9 +14,10 @@ public class DiceManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         if(_dice == null)
         {
-            return;
+            _dice = Instantiate(_dicePrefab);
         }
-        _diceRoller = _dice.GetComponent<DiceRoller>();
+        _diceRoller = _dice.GetComponent<DiceRoller>(); _diceRoller.TurnOff();
+        _diceRoller.TurnOff();
         _diceRoller.OnDiceRollSuccessful += SetFace;
     }
 

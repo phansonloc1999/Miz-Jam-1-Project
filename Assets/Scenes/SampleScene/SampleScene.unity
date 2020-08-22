@@ -325,6 +325,7 @@ GameObject:
   m_Component:
   - component: {fileID: 932924290}
   - component: {fileID: 932924291}
+  - component: {fileID: 932924292}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -361,6 +362,21 @@ MonoBehaviour:
   player1Master: {fileID: 2084040526}
   player2Master: {fileID: 130914545}
   map: {fileID: 612288093}
+--- !u!114 &932924292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932924289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed33bda42bbb32d48adc6760461b4276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dice: {fileID: 0}
+  _dicePrefab: {fileID: 2642005092050254638, guid: 8953d87e4f3e71345a6697d8e17c1253, type: 3}
+  _face: 0
 --- !u!1001 &2084040525
 PrefabInstance:
   m_ObjectHideFlags: 0
