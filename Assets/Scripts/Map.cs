@@ -2,6 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public struct TilePosition
+{
+    public int row;
+    public int column;
+
+    public TilePosition(int row, int column)
+    {
+        this.row = row;
+        this.column = column;
+    }
+}
+
 public class Map : MonoBehaviour
 {
     private GameObject[,] tiles;
@@ -9,12 +21,12 @@ public class Map : MonoBehaviour
     [SerializeField] private GameObject tilePrefab = null;
 
     [Header("Map size")]
-    [SerializeField] private int NUM_OF_TILE_ROW = 5;
-    [SerializeField] private int NUM_OF_TILE_COLUMN = 5;
+    public int NUM_OF_TILE_ROW = 5;
+    public int NUM_OF_TILE_COLUMN = 5;
 
     [Header("Tile size")]
-    [SerializeField] private float TILE_WIDTH = 1;
-    [SerializeField] private float TILE_HEIGHT = 1;
+    public float TILE_WIDTH = 1;
+    public float TILE_HEIGHT = 1;
 
     public void initTiles()
     {
@@ -32,8 +44,20 @@ public class Map : MonoBehaviour
         }
     }
 
-    public GameObject getTile(int row, int column)
+    public GameObject getTileAt(int row, int column)
     {
         return tiles[row, column];
+    }
+
+    public TilePosition getTilePositionOf(GameObject targetTile)
+    {
+        for (int row = 0; row < NUM_OF_TILE_ROW; row++)
+        {
+            for (int column = 0; column < NUM_OF_TILE_COLUMN; column++)
+            {
+                if (targetTile == tiles[row, column]) return new TilePosition(row, column);
+            }
+        }
+        return new TilePosition(-1, -1);
     }
 }

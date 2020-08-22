@@ -16,4 +16,5 @@ public class Slave : MonoBehaviour
     {
         transform.localPosition = Vector3.zero;
     }
+
 }

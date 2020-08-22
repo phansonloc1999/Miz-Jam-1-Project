@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1530983184707302877}
   - component: {fileID: 1530983184707302876}
   - component: {fileID: -3451958979471204722}
+  - component: {fileID: -8525871334680926912}
   m_Layer: 0
   m_Name: Slave
   m_TagString: Untagged
@@ -96,4 +97,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MAX_HEALTH: 0
+  ATTACK_DAMAGE: 0
+  ATTACK_RANGE: 0
   health: 0
+--- !u!114 &-8525871334680926912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530983184707302874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4e458f4dcf1aa841ad9fe6845860507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementRanges: []

@@ -359,9 +359,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 701d36c76cbc5d14abaf78ba33bbb664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1Movement: {fileID: 0}
+  player2Movement: {fileID: 0}
   player1Master: {fileID: 2084040526}
   player2Master: {fileID: 130914545}
   map: {fileID: 612288093}
+  selectedCharacter: {fileID: 0}
+  selectedTile: {fileID: 0}
 --- !u!114 &932924292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,14 +388,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
-      propertyPath: slavePrefabSet.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
-      propertyPath: slavePrefabSet.Array.data[0]
-      value: 
-      objectReference: {fileID: 1530983184707302874, guid: 2e1c7db757484e84f8d7fc4ded9509b9, type: 3}
     - target: {fileID: 7790672484328788740, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
       propertyPath: m_RootOrder
       value: 3
