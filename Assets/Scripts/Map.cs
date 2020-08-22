@@ -21,18 +21,12 @@ public class Map : MonoBehaviour
     [SerializeField]
     private float TILE_HEIGHT = 1;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        instanciatingCells();
-    }
-
     // Update is called once per frame
     void Update()
     {
     }
 
-    private void instanciatingCells()
+    public void initTiles()
     {
         tiles = new GameObject[NUM_OF_TILE_ROW, NUM_OF_TILE_COLUMN];
 
@@ -46,5 +40,10 @@ public class Map : MonoBehaviour
                 );
             }
         }
+    }
+
+    public GameObject getTile(int row, int column)
+    {
+        return tiles[row, column];
     }
 }
