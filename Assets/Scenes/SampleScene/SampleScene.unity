@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 612288092}
   - component: {fileID: 612288093}
   m_Layer: 0
-  m_Name: Board
+  m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -270,8 +270,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e98cf2a5864ad6e408f7df7180883d01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cellPrefab: {fileID: 195035902928457889, guid: ede72c1f424042749a01bc8c8060ec65, type: 3}
-  NUM_OF_ROW: 10
-  NUM_OF_COLUMN: 10
-  CELL_WIDTH: 1
-  CELL_HEIGHT: 1
+  tilePrefab: {fileID: 195035902928457889, guid: ede72c1f424042749a01bc8c8060ec65, type: 3}
+  NUM_OF_TILE_ROW: 5
+  NUM_OF_TILE_COLUMN: 5
+  TILE_WIDTH: 1
+  TILE_HEIGHT: 1
