@@ -6,20 +6,15 @@ public class Map : MonoBehaviour
 {
     private GameObject[,] tiles;
 
-    [SerializeField]
-    private GameObject tilePrefab = null;
+    [SerializeField] private GameObject tilePrefab = null;
 
     [Header("Map size")]
-    [SerializeField]
-    private int NUM_OF_TILE_ROW = 5;
-    [SerializeField]
-    private int NUM_OF_TILE_COLUMN = 5;
+    [SerializeField] private int NUM_OF_TILE_ROW = 5;
+    [SerializeField] private int NUM_OF_TILE_COLUMN = 5;
 
     [Header("Tile size")]
-    [SerializeField]
-    private float TILE_WIDTH = 1;
-    [SerializeField]
-    private float TILE_HEIGHT = 1;
+    [SerializeField] private float TILE_WIDTH = 1;
+    [SerializeField] private float TILE_HEIGHT = 1;
 
     public void initTiles()
     {

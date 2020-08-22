@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class Slave : MonoBehaviour
 {
-    [SerializeField]
-    private float MAX_HEALTH;
+    [SerializeField] private float MAX_HEALTH;
 
-    [SerializeField]
-    private float ATTACK_DAMAGE;
+    [SerializeField] private float ATTACK_DAMAGE;
 
-    [SerializeField]
-    private float ATTACK_RANGE;
+    [SerializeField] private float ATTACK_RANGE;
 
-    [SerializeField]
-    private float health;
+    [SerializeField] private float health;
 
     private void Update()
     {

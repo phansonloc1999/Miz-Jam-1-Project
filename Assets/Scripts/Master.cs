@@ -6,17 +6,13 @@ public class Master : MonoBehaviour
 {
     private const float MAX_HEALTH = 3;
 
-    [SerializeField]
-    private float health = MAX_HEALTH;
+    [SerializeField] private float health = MAX_HEALTH;
 
-    [SerializeField]
-    private Map map;
+    [SerializeField] private Map map;
 
-    [SerializeField]
-    private List<GameObject> summonedSlaves;
+    [SerializeField] private List<GameObject> summonedSlaves;
 
-    [SerializeField]
-    private List<GameObject> slavePrefabSet;
+    [SerializeField] private List<GameObject> slavePrefabSet;
 
     private void Awake()
     {
