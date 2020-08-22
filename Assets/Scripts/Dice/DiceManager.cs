@@ -8,7 +8,7 @@ public class DiceManager : MonoBehaviour
     [SerializeField] private GameObject _dice;
     [SerializeField] private GameObject _dicePrefab;
     private DiceRoller _diceRoller;
-    public Face _face;
+    private Face _face;
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -30,7 +30,11 @@ public class DiceManager : MonoBehaviour
         Debug.Log(_face);
     }
 
-    // Update is called once per frame
+    public Face GetFace()
+    {
+        return _face;
+    }
+
     #region Test
     private void Update()
     {

@@ -32,6 +32,7 @@ public class CharacterMovement : MonoBehaviour
     {
         transform.parent = newTile.transform;
         transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.Euler(Vector3.zero);
     }
 
     public void moveToTile(GameObject newTile)

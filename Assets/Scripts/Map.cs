@@ -38,10 +38,11 @@ public class Map : MonoBehaviour
             {
                 tiles[row, column] = Instantiate(tilePrefab,
                     new Vector3(transform.position.x + (column - 1) * TILE_WIDTH, transform.position.y - (row - 1) * TILE_HEIGHT, transform.position.z),
-                    transform.rotation, transform
-                );
+                    Quaternion.identity, transform
+                );            
             }
         }
+        gameObject.transform.rotation = Quaternion.Euler(Vector3.right * 90);
     }
 
     public GameObject getTileAt(int row, int column)
