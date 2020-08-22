@@ -32,12 +32,15 @@ public class Master : MonoBehaviour
     {
         transform.parent = newTile.transform;
         transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.Euler(Vector3.zero);
     }
 
     public void summonSlaveAt(int slaveIndexInSet, int atMapRow, int atMapColumn)
     {
         var newSlave = Instantiate(slavePrefabSet[slaveIndexInSet], Vector3.zero, transform.rotation, map.getTile(atMapRow, atMapColumn).transform);
+        newSlave.transform.up = gameObject.transform.up;
         summonedSlaves.Add(newSlave);
         newSlave.transform.localPosition = Vector3.zero;
+        newSlave.transform.localRotation = Quaternion.Euler(Vector3.zero);
     }
 }
