@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     }
     private static PLAYER_TURN currentPlayerTurn = PLAYER_TURN.PLAYER_1;
 
-    [SerializeField] private CharacterMovement player1Movement, player2Movement = null;
+    [SerializeField] private CharacterPosition player1Movement, player2Movement = null;
 
     [SerializeField] private Master player1Master, player2Master;
 
@@ -38,8 +38,8 @@ public class GameManager : MonoBehaviour
         var player2 = GameObject.Find("Player 2 Master");
         player1Master = player1.GetComponent<Master>();
         player2Master = player2.GetComponent<Master>();
-        player1Movement = player1.GetComponent<CharacterMovement>();
-        player2Movement = player2.GetComponent<CharacterMovement>();
+        player1Movement = player1.GetComponent<CharacterPosition>();
+        player2Movement = player2.GetComponent<CharacterPosition>();
 
         player1Movement.spawnAtTile(map.getTileAt(0, 0));
         player2Movement.spawnAtTile(map.getTileAt(3, 3));
@@ -64,12 +64,11 @@ public class GameManager : MonoBehaviour
 
         if (selectedCharacter != null && selectedTile.transform.childCount == 0)
         {
-            selectedCharacter.GetComponent<CharacterMovement>().moveToTile(selectedTile);
+            selectedCharacter.GetComponent<CharacterPosition>().moveToTile(selectedTile);
         }
 
         selectedCharacter = null;
         this.selectedTile = null;
-        Debug.Log("LOL");
     }
 
     private void addEventHandlers()

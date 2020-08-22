@@ -387,6 +387,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3531133896181782341, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
+      propertyPath: movementRanges.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3531133896181782341, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
+      propertyPath: movementRanges.Array.data[0].rowOffset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3531133896181782341, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
+      propertyPath: movementRanges.Array.data[1].rowOffset
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 7790672484328788740, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
       propertyPath: m_RootOrder
       value: 3

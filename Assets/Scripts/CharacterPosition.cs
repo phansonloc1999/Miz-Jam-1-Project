@@ -9,7 +9,7 @@ public struct MovementRange
     public int columnOffset;
 }
 
-public class CharacterMovement : MonoBehaviour
+public class CharacterPosition : MonoBehaviour
 {
     static Map map;
 
@@ -31,7 +31,7 @@ public class CharacterMovement : MonoBehaviour
     public void spawnAtTile(GameObject newTile)
     {
         transform.parent = newTile.transform;
-        transform.localPosition = Vector3.zero;
+        transform.localPosition = new Vector3(0, 0, -0.5f);
         transform.localRotation = Quaternion.Euler(Vector3.zero);
     }
 
@@ -40,7 +40,7 @@ public class CharacterMovement : MonoBehaviour
         if (isWithinMovementRange(newTile))
         {
             transform.parent = newTile.transform;
-            transform.localPosition = Vector3.zero;
+            transform.localPosition = new Vector3(0, 0, -0.5f);
         }
     }
 
