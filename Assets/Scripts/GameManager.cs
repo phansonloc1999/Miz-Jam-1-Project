@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
         addOnEventHandlers();
     }
 
-    private void changeTurn()
+    private void switchTurn()
     {
         if (currentPlayerTurn == PLAYER_TURN.PLAYER_1) currentPlayerTurn = PLAYER_TURN.PLAYER_2;
         else currentPlayerTurn = PLAYER_TURN.PLAYER_1;
@@ -57,7 +57,23 @@ public class GameManager : MonoBehaviour
     {
         if (prevSelectedCharacter == null)
         {
-            prevSelectedCharacter = targetCharacter;
+            if (targetCharacter.tag == "Slave")
+            {
+                var targetMaster = targetCharacter.GetComponent<Slave>().getMaster();
+                if (
+                        (targetMaster == player1Master.gameObject && currentPlayerTurn == PLAYER_TURN.PLAYER_1)
+                        || (targetMaster == player2Master.gameObject && currentPlayerTurn == PLAYER_TURN.PLAYER_2)
+                   )
+                    prevSelectedCharacter = targetCharacter;
+            }
+            else if (targetCharacter.tag == "Master")
+            {
+                if (
+                    (targetCharacter.name == "Player 1 Master" && currentPlayerTurn == PLAYER_TURN.PLAYER_1)
+                        || (targetCharacter.name == "Player 2 Master" && currentPlayerTurn == PLAYER_TURN.PLAYER_2)
+                    )
+                    prevSelectedCharacter = targetCharacter;
+            }
         }
         else if (prevSelectedCharacter != targetCharacter) // Did player select the same character twice?
         {
@@ -84,7 +100,7 @@ public class GameManager : MonoBehaviour
         {
             prevSelectedCharacter.GetComponent<CharacterPosition>().moveToTile(selectedTile);
 
-            changeTurn();
+            switchTurn();
             prevSelectedCharacter = null;
         }
     }
@@ -128,7 +144,7 @@ public class GameManager : MonoBehaviour
             var message = prevSelectedCharacter.name + " attacked " + targetCharacter + " for " + damage.ToString() + " damage";
             Debug.Log(message);
 
-            changeTurn();
+            switchTurn();
         }
     }
 }
