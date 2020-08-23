@@ -54,6 +54,8 @@ namespace MyGame
         {
             if (currentPlayerTurn == PLAYER_TURN.PLAYER_1) currentPlayerTurn = PLAYER_TURN.PLAYER_2;
             else currentPlayerTurn = PLAYER_TURN.PLAYER_1;
+
+            Debug.Log("Turn switched");
         }
 
         private void OnCharacterSelect(GameObject targetCharacter)

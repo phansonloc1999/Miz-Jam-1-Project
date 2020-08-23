@@ -154,6 +154,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 2 Master
       objectReference: {fileID: 0}
+    - target: {fileID: 7790672484328788743, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -557202015277469003, guid: cb31bd1eeb2c2324babf368f8520a771, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
 --- !u!114 &130914545 stripped
@@ -418,6 +422,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Master
       objectReference: {fileID: 0}
+    - target: {fileID: 7790672484328788743, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -557202015277469003, guid: cb31bd1eeb2c2324babf368f8520a771, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
 --- !u!114 &2084040526 stripped
