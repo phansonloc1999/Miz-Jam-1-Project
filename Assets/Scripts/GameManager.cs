@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public static class MOUSE_BUTTON
@@ -48,6 +47,21 @@ namespace MyGame
             player2Master.summonSlaveAt(0, 3, 4);
 
             addOnEventHandlers();
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (currentPlayerTurn == PLAYER_TURN.PLAYER_1)
+                {
+                    player1Master.summonSlaveAt(Random.Range(0, player1Master.SlavePrefabSet.Count), 1, 1);
+                }
+                else if (currentPlayerTurn == PLAYER_TURN.PLAYER_2)
+                {
+                    player2Master.summonSlaveAt(Random.Range(0, player2Master.SlavePrefabSet.Count), 1, 1);
+                }
+            }
         }
 
         private void switchTurn()
@@ -110,15 +124,6 @@ namespace MyGame
             }
         }
 
-        private void addOnCharSelectToSlaves(Master master)
-        {
-            var summonedSlaves = master.getSummonedSlaves();
-            for (int i = 0; i < summonedSlaves.Count; i++)
-            {
-                summonedSlaves[i].GetComponent<Slave>().selectedChar += OnCharacterSelect;
-            }
-        }
-
         private void addOnEventHandlers()
         {
             player2Master.selectedChar += OnCharacterSelect;
@@ -131,8 +136,6 @@ namespace MyGame
                     map.getTileAt(row, column).GetComponent<Tile>().selectedTile += OnTileSelect;
                 }
             }
-            addOnCharSelectToSlaves(player1Master);
-            addOnCharSelectToSlaves(player2Master);
         }
 
         private void slaveTryAttackingAnother(GameObject targetCharacter)
@@ -151,6 +154,15 @@ namespace MyGame
 
                 switchTurn();
             }
+        }
+
+
+        /// <summary>
+        /// Add OnCharacterSelect when new slave is summoned
+        /// </summary>
+        public void OnSummoningSlave(GameObject newSlave)
+        {
+            newSlave.GetComponent<Slave>().selectedChar += OnCharacterSelect;
         }
     }
 }

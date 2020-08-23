@@ -8,7 +8,14 @@ public class Master : MonoBehaviour
 
     [SerializeField] private List<GameObject> summonedSlaves;
 
-    [SerializeField] private List<GameObject> slavePrefabSet;
+    [SerializeField]
+    private List<GameObject> slavePrefabSet;
+
+    public List<GameObject> SlavePrefabSet
+    {
+        get { return slavePrefabSet; }
+        set { slavePrefabSet = value; }
+    }
 
     private void Awake()
     {
@@ -30,6 +37,8 @@ public class Master : MonoBehaviour
         newSlave.transform.localRotation = Quaternion.Euler(Vector3.zero);
         newSlave.GetComponent<Slave>().setMaster(this.gameObject);
         newSlave.GetComponent<Health>().dead += onSlaveDeath;
+
+        GameObject.Find("Game Manager").GetComponent<MyGame.GameManager>().OnSummoningSlave(newSlave);
 
         summonedSlaves.Add(newSlave);
     }
