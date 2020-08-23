@@ -23,7 +23,7 @@ namespace DiceSystem
         public Face GetFaceUp()
         {
             Vector3 faceOneNorm = _faceOnePos.position - gameObject.transform.position;
-            float value = Vector3.Dot(faceOneNorm.normalized, Vector3.up);
+            float value = Vector3.Dot(faceOneNorm.normalized, Vector3.back);
             if (Mathf.Approximately(value, 1f))
             {
                 return Face.One;
@@ -34,7 +34,7 @@ namespace DiceSystem
             }
 
             Vector3 faceTwoNorm = _faceTwoPos.position - gameObject.transform.position;
-            value = Vector3.Dot(faceTwoNorm.normalized, Vector3.up);
+            value = Vector3.Dot(faceTwoNorm.normalized, Vector3.back);
             if (Mathf.Approximately(value, 1f))
             {
                 return Face.Two;
@@ -45,7 +45,7 @@ namespace DiceSystem
             }
 
             Vector3 faceThreeNorm = _faceThreePos.position - gameObject.transform.position;
-            value = Vector3.Dot(faceThreeNorm.normalized, Vector3.up);
+            value = Vector3.Dot(faceThreeNorm.normalized, Vector3.back);
             if (Mathf.Approximately(value, 1f))
             {
                 return Face.Three;

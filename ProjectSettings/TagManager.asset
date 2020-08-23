@@ -46,3 +46,6 @@ TagManager:
   - name: Characters
     uniqueID: 2191264993
     locked: 0
+  - name: Dice
+    uniqueID: 3369654917
+    locked: 0
