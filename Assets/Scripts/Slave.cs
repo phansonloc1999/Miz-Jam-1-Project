@@ -8,6 +8,8 @@ public class Slave : MonoBehaviour
 
     [SerializeField] private float ATTACK_RANGE;
 
+    [SerializeField] private GameObject master;
+
     public float getAttackDamage()
     {
         return ATTACK_DAMAGE;
@@ -21,5 +23,15 @@ public class Slave : MonoBehaviour
         {
             selectedChar?.Invoke(this.gameObject);
         }
+    }
+
+    public void setMaster(GameObject player)
+    {
+        master = player;
+    }
+
+    public GameObject getMaster()
+    {
+        return master;
     }
 }

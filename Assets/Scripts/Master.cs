@@ -26,9 +26,11 @@ public class Master : MonoBehaviour
     {
         var newSlave = Instantiate(slavePrefabSet[slaveIndexInSet], Vector3.zero, transform.rotation, map.getTileAt(atMapRow, atMapColumn).transform);
         newSlave.transform.up = gameObject.transform.up;
-        summonedSlaves.Add(newSlave);
         newSlave.transform.localPosition = new Vector3(0, 0, -0.5f);
         newSlave.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        newSlave.GetComponent<Slave>().setMaster(this.gameObject);
+
+        summonedSlaves.Add(newSlave);
     }
 
     public delegate void SelectCharacterHandler(GameObject selectedChar);

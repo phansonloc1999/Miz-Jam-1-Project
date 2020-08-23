@@ -113,7 +113,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 0}
   summonedSlaves: []
-  slavePrefabSet: []
+  slavePrefabSet:
+  - {fileID: 1530983184707302874, guid: 2e1c7db757484e84f8d7fc4ded9509b9, type: 3}
 --- !u!114 &-3531133896181782341
 MonoBehaviour:
   m_ObjectHideFlags: 0

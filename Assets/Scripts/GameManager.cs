@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
 
         player1Movement.moveToTile(map.getTileAt(1, 1));
         player1Master.summonSlaveAt(0, 3, 3);
+        player2Master.summonSlaveAt(0, 3, 4);
 
         addOnEventHandlers();
     }
@@ -52,19 +53,25 @@ public class GameManager : MonoBehaviour
         else currentPlayerTurn = PLAYER_TURN.PLAYER_1;
     }
 
-    private void OnCharacterSelect(GameObject selectedCharacter)
+    private void OnCharacterSelect(GameObject targetCharacter)
     {
         if (prevSelectedCharacter == null)
         {
-            prevSelectedCharacter = selectedCharacter;
+            prevSelectedCharacter = targetCharacter;
         }
-        else if (prevSelectedCharacter != selectedCharacter)
+        else if (prevSelectedCharacter != targetCharacter) // Did player select the same character twice?
         {
-            if (prevSelectedCharacter.tag == "Slave")
-                selectedCharacter.GetComponent<Health>().takeDamage(prevSelectedCharacter.GetComponent<Slave>().getAttackDamage());
+            if (prevSelectedCharacter.tag == "Slave" && targetCharacter.tag == "Slave")
+            {
+                slaveTryAttackingAnother(targetCharacter);
 
-            changeTurn();
-            prevSelectedCharacter = null;
+                prevSelectedCharacter = null;
+            }
+
+            if (prevSelectedCharacter.tag == "Slave" && targetCharacter.tag == "Master")
+            {
+                // TODO: Insert code here
+            }
         }
     }
 
@@ -75,9 +82,8 @@ public class GameManager : MonoBehaviour
             prevSelectedCharacter.GetComponent<CharacterPosition>().moveToTile(selectedTile);
 
             changeTurn();
+            prevSelectedCharacter = null;
         }
-
-        prevSelectedCharacter = null;
     }
 
     private void addOnCharSelectToSlaves(Master master)
@@ -103,5 +109,23 @@ public class GameManager : MonoBehaviour
         }
         addOnCharSelectToSlaves(player1Master);
         addOnCharSelectToSlaves(player2Master);
+    }
+
+    private void slaveTryAttackingAnother(GameObject targetCharacter)
+    {
+        var prevSelectedCharMaster = prevSelectedCharacter.GetComponent<Slave>().getMaster();
+        var selectedCharMaster = targetCharacter.GetComponent<Slave>().getMaster();
+
+        // Only deal damage if 2 slaves aren't from the same master
+        if (prevSelectedCharMaster != selectedCharMaster)
+        {
+            var damage = prevSelectedCharacter.GetComponent<Slave>().getAttackDamage();
+            targetCharacter.GetComponent<Health>().takeDamage(damage);
+
+            var message = prevSelectedCharacter.name + " attacked " + targetCharacter + " for " + damage.ToString() + " damage";
+            Debug.Log(message);
+
+            changeTurn();
+        }
     }
 }
