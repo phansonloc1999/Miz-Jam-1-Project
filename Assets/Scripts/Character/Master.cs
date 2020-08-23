@@ -29,6 +29,7 @@ public class Master : MonoBehaviour
         newSlave.transform.localPosition = new Vector3(0, 0, -0.5f);
         newSlave.transform.localRotation = Quaternion.Euler(Vector3.zero);
         newSlave.GetComponent<Slave>().setMaster(this.gameObject);
+        newSlave.GetComponent<Health>().dead += onSlaveDeath;
 
         summonedSlaves.Add(newSlave);
     }
@@ -46,6 +47,10 @@ public class Master : MonoBehaviour
     public List<GameObject> getSummonedSlaves()
     {
         return summonedSlaves;
-        
+    }
+
+    private void onSlaveDeath(GameObject deadSlave)
+    {
+        summonedSlaves.Remove(deadSlave);
     }
 }

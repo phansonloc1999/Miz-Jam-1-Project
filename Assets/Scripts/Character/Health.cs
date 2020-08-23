@@ -10,11 +10,18 @@ public class Health : MonoBehaviour
     {
         health -= ammount;
 
-        deathCheck();
+        die();
     }
 
-    public void deathCheck()
+    public delegate void DeathHandler(GameObject deadSlave);
+    public event DeathHandler dead;
+    public void die()
     {
-        if (health <= 0) Destroy(gameObject);
+        if (health <= 0)
+        {
+            dead?.Invoke(gameObject);
+
+            Destroy(gameObject);
+        }
     }
 }
