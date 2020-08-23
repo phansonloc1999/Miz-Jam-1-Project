@@ -46,5 +46,6 @@ public class Master : MonoBehaviour
     public List<GameObject> getSummonedSlaves()
     {
         return summonedSlaves;
+        
     }
 }

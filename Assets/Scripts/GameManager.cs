@@ -64,14 +64,17 @@ public class GameManager : MonoBehaviour
             if (prevSelectedCharacter.tag == "Slave" && targetCharacter.tag == "Slave")
             {
                 slaveTryAttackingAnother(targetCharacter);
-
-                prevSelectedCharacter = null;
             }
-
-            if (prevSelectedCharacter.tag == "Slave" && targetCharacter.tag == "Master")
+            else if (prevSelectedCharacter.tag == "Slave" && targetCharacter.tag == "Master")
             {
-                // TODO: Insert code here
+                var prevSelectedSlave = prevSelectedCharacter.GetComponent<Slave>();
+                if (prevSelectedSlave.getMaster() != targetCharacter) // Did slave attack enemy master?
+                {
+                    targetCharacter.GetComponent<Health>().takeDamage(prevSelectedSlave.getAttackDamage());
+                }
             }
+
+            prevSelectedCharacter = null;
         }
     }
 
