@@ -23,15 +23,11 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Map map;
 
-    [SerializeField] private GameObject selectedCharacter;
-
-    [SerializeField] private GameObject selectedTile;
+    [SerializeField] private GameObject prevSelectedCharacter;
 
     private void Start()
     {
         map.initTiles();
-
-        addEventHandlers();
 
         // TEST CODE
         var player1 = GameObject.Find("Player 1 Master");
@@ -42,9 +38,12 @@ public class GameManager : MonoBehaviour
         player2Movement = player2.GetComponent<CharacterPosition>();
 
         player1Movement.spawnAtTile(map.getTileAt(0, 0));
-        player2Movement.spawnAtTile(map.getTileAt(3, 3));
+        player2Movement.spawnAtTile(map.getTileAt(2, 2));
 
         player1Movement.moveToTile(map.getTileAt(1, 1));
+        player1Master.summonSlaveAt(0, 3, 3);
+
+        addOnEventHandlers();
     }
 
     private void changeTurn()
@@ -53,25 +52,44 @@ public class GameManager : MonoBehaviour
         else currentPlayerTurn = PLAYER_TURN.PLAYER_1;
     }
 
-    private void OnCharacterSelect(GameObject selectedChar)
+    private void OnCharacterSelect(GameObject selectedCharacter)
     {
-        selectedCharacter = selectedChar;
+        if (prevSelectedCharacter == null)
+        {
+            prevSelectedCharacter = selectedCharacter;
+        }
+        else if (prevSelectedCharacter != selectedCharacter)
+        {
+            if (prevSelectedCharacter.tag == "Slave")
+                selectedCharacter.GetComponent<Health>().takeDamage(prevSelectedCharacter.GetComponent<Slave>().getAttackDamage());
+
+            changeTurn();
+            prevSelectedCharacter = null;
+        }
     }
 
     private void OnTileSelect(GameObject selectedTile)
     {
-        this.selectedTile = selectedTile;
-
-        if (selectedCharacter != null && selectedTile.transform.childCount == 0)
+        if (prevSelectedCharacter != null && selectedTile.transform.childCount == 0)
         {
-            selectedCharacter.GetComponent<CharacterPosition>().moveToTile(selectedTile);
+            prevSelectedCharacter.GetComponent<CharacterPosition>().moveToTile(selectedTile);
+
+            changeTurn();
         }
 
-        selectedCharacter = null;
-        this.selectedTile = null;
+        prevSelectedCharacter = null;
     }
 
-    private void addEventHandlers()
+    private void addOnCharSelectToSlaves(Master master)
+    {
+        var summonedSlaves = master.getSummonedSlaves();
+        for (int i = 0; i < summonedSlaves.Count; i++)
+        {
+            summonedSlaves[i].GetComponent<Slave>().selectedChar += OnCharacterSelect;
+        }
+    }
+
+    private void addOnEventHandlers()
     {
         player2Master.selectedChar += OnCharacterSelect;
         player1Master.selectedChar += OnCharacterSelect;
@@ -83,5 +101,7 @@ public class GameManager : MonoBehaviour
                 map.getTileAt(row, column).GetComponent<Tile>().selectedTile += OnTileSelect;
             }
         }
+        addOnCharSelectToSlaves(player1Master);
+        addOnCharSelectToSlaves(player2Master);
     }
 }

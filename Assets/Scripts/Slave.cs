@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class Slave : MonoBehaviour
 {
-    [SerializeField] private float MAX_HEALTH;
-
     [SerializeField] private float ATTACK_DAMAGE;
 
     [SerializeField] private float ATTACK_RANGE;
 
-    [SerializeField] private float health;
-
-    private void Update()
+    public float getAttackDamage()
     {
-        transform.localPosition = Vector3.zero;
+        return ATTACK_DAMAGE;
     }
 
+    public delegate void SelectCharacterHandler(GameObject selectedChar);
+    public event SelectCharacterHandler selectedChar;
+    private void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(MOUSE_BUTTON.PRIMARY))
+        {
+            selectedChar?.Invoke(this.gameObject);
+        }
+    }
 }

@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 7121302508441111217}
   - component: {fileID: -6651009851655310103}
   - component: {fileID: -3531133896181782341}
+  - component: {fileID: -2748213952366266225}
   m_Layer: 0
   m_Name: Master
-  m_TagString: Untagged
+  m_TagString: Master
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,7 +111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bbe867077d40294fb1a586372418c94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
   map: {fileID: 0}
   summonedSlaves: []
   slavePrefabSet: []
@@ -126,4 +126,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e458f4dcf1aa841ad9fe6845860507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementRanges: []
+  movementRanges:
+  - rowOffset: 1
+    columnOffset: 0
+  - rowOffset: -1
+    columnOffset: 0
+  - rowOffset: 0
+    columnOffset: 1
+  - rowOffset: 0
+    columnOffset: -1
+--- !u!114 &-2748213952366266225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7790672484328788741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a03be2151c0e8642a49f9b3e28e8482, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3

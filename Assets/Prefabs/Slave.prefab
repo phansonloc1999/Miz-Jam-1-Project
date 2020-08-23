@@ -10,11 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1530983184707302877}
   - component: {fileID: 1530983184707302876}
+  - component: {fileID: 9085202735162694261}
   - component: {fileID: -3451958979471204722}
   - component: {fileID: -8525871334680926912}
+  - component: {fileID: -2011447602005666212}
   m_Layer: 0
   m_Name: Slave
-  m_TagString: Untagged
+  m_TagString: Slave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,6 +86,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &9085202735162694261
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530983184707302874}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-3451958979471204722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,10 +111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6abb5efe51f1e2c43a12839e52898d50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_HEALTH: 0
-  ATTACK_DAMAGE: 0
+  ATTACK_DAMAGE: 2
   ATTACK_RANGE: 0
-  health: 0
 --- !u!114 &-8525871334680926912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,4 +125,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e458f4dcf1aa841ad9fe6845860507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementRanges: []
+  movementRanges:
+  - rowOffset: 1
+    columnOffset: 0
+  - rowOffset: -1
+    columnOffset: 0
+  - rowOffset: 0
+    columnOffset: 1
+  - rowOffset: 0
+    columnOffset: -1
+--- !u!114 &-2011447602005666212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530983184707302874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a03be2151c0e8642a49f9b3e28e8482, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
