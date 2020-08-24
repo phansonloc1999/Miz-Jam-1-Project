@@ -41,8 +41,7 @@ public class Map : MonoBehaviour
                     Quaternion.identity, transform
                 );            
             }
-        }
-        gameObject.transform.rotation = Quaternion.Euler(Vector3.right * 90);
+        }        
     }
 
     public GameObject getTileAt(int row, int column)

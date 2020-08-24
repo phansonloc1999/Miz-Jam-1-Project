@@ -36,6 +36,10 @@ namespace DiceSystem
             gameObject.transform.position = pos;
             _thown = false;
             _hasLanded = false;
+
+            //reset dice config
+            _rigidbody.velocity = Vector3.zero;
+            gameObject.transform.rotation = Quaternion.Euler(Vector3.zero);
         }
 
         public void TurnOff()
@@ -53,7 +57,7 @@ namespace DiceSystem
             {
                 _thown = true;
                 _rigidbody.useGravity = true;
-                _rigidbody.AddTorque(Random.Range(0, 400), Random.Range(0, 400), Random.Range(0, 400));
+                _rigidbody.AddTorque(Random.Range(10, 500), Random.Range(10, 500), Random.Range(10, 500));
                 StartCoroutine(CheckDice());
             }
         }
@@ -61,7 +65,7 @@ namespace DiceSystem
         IEnumerator CheckDice()
         {
             while(_thown && !_hasLanded)
-            {                
+            {
                 if (_rigidbody.IsSleeping() && _thown && !_hasLanded)
                 {
                     _hasLanded = true;

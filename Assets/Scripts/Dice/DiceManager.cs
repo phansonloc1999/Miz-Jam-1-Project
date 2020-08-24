@@ -40,13 +40,13 @@ public class DiceManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            _diceRoller.Setup(new Vector3(-2, 5, 0));
+            _diceRoller.Setup(new Vector3(-5, 0, 8));
             _diceRoller.TossDice();
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            _diceRoller.Setup(new Vector3(2, 5, 0));
+            _diceRoller.Setup(new Vector3(5, 0, 8));
             _diceRoller.TossDice();
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
