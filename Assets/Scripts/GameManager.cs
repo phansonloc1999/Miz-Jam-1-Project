@@ -31,7 +31,6 @@ namespace MyGame
         {
             map.initTiles();
 
-            // TEST CODE
             var player1 = GameObject.Find("Player 1 Master");
             var player2 = GameObject.Find("Player 2 Master");
             player1Master = player1.GetComponent<Master>();
@@ -46,7 +45,7 @@ namespace MyGame
             player1Master.summonSlaveAt(0, 3, 3);
             player2Master.summonSlaveAt(0, 3, 4);
 
-            addOnEventHandlers();
+            addOnSelectEventHandlers();
         }
 
         private void Update()
@@ -78,10 +77,10 @@ namespace MyGame
             {
                 if (targetCharacter.tag == "Slave")
                 {
-                    var targetMaster = targetCharacter.GetComponent<Slave>().getMaster();
+                    var targetCharacterMaster = targetCharacter.GetComponent<Slave>().getMaster();
                     if (
-                            (targetMaster == player1Master.gameObject && currentPlayerTurn == PLAYER_TURN.PLAYER_1)
-                            || (targetMaster == player2Master.gameObject && currentPlayerTurn == PLAYER_TURN.PLAYER_2)
+                            (targetCharacterMaster == player1Master.gameObject && currentPlayerTurn == PLAYER_TURN.PLAYER_1)
+                            || (targetCharacterMaster == player2Master.gameObject && currentPlayerTurn == PLAYER_TURN.PLAYER_2)
                        )
                         prevSelectedCharacter = targetCharacter;
                 }
@@ -124,7 +123,7 @@ namespace MyGame
             }
         }
 
-        private void addOnEventHandlers()
+        private void addOnSelectEventHandlers()
         {
             player2Master.selectedChar += OnCharacterSelect;
             player1Master.selectedChar += OnCharacterSelect;
@@ -147,10 +146,10 @@ namespace MyGame
             // Only deal damage if 2 slaves aren't from the same master and prev slave can attack because target is within its attack range
             if (prevSelectedCharMaster != selectedCharMaster && prevSlave.canAttackAtTile(targetCharacter.transform.parent.gameObject))
             {
-                var damage = prevSelectedCharacter.GetComponent<Slave>().getAttackDamage();
-                targetCharacter.GetComponent<Health>().takeDamage(damage);
+                var ammountOfDamage = prevSelectedCharacter.GetComponent<Slave>().getAttackDamage();
+                targetCharacter.GetComponent<Health>().takeDamage(ammountOfDamage);
 
-                var message = prevSelectedCharacter.name + " attacked " + targetCharacter + " for " + damage.ToString() + " damage";
+                var message = prevSelectedCharacter.name + " attacked " + targetCharacter + " for " + ammountOfDamage.ToString() + " damage";
                 Debug.Log(message);
 
                 switchTurn();
