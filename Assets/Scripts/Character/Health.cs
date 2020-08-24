@@ -2,9 +2,14 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    private const float MAX_HEALTH = 0;
+    [SerializeField] private float MAX_HEALTH;
 
-    [SerializeField] private float health = MAX_HEALTH;
+    [SerializeField] private float health;
+
+    private void Start()
+    {
+        health = MAX_HEALTH;
+    }
 
     public void takeDamage(float ammount)
     {

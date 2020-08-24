@@ -7,6 +7,50 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8525871334680926912, guid: 2e1c7db757484e84f8d7fc4ded9509b9, type: 3}
+      propertyPath: movementRanges
+      value: 
+      objectReference: {fileID: 11400000, guid: fa40eac63f152164b89c2c4cd6f36fa6, type: 2}
+    - target: {fileID: -3451958979471204722, guid: 2e1c7db757484e84f8d7fc4ded9509b9, type: 3}
+      propertyPath: attackRanges.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -3451958979471204722, guid: 2e1c7db757484e84f8d7fc4ded9509b9, type: 3}
+      propertyPath: ATTACK_DAMAGE
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3451958979471204722, guid: 2e1c7db757484e84f8d7fc4ded9509b9, type: 3}
+      propertyPath: attackRanges.Array.data[0].rowOffset
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3451958979471204722, guid: 2e1c7db757484e84f8d7fc4ded9509b9, type: 3}
+      propertyPath: attackRanges.Array.data[0].columnOffset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3451958979471204722, guid: 2e1c7db757484e84f8d7fc4ded9509b9, type: 3}
+      propertyPath: attackRanges.Array.data[1].rowOffset
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3451958979471204722, guid: 2e1c7db757484e84f8d7fc4ded9509b9, type: 3}
+      propertyPath: attackRanges.Array.data[1].columnOffset
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3451958979471204722, guid: 2e1c7db757484e84f8d7fc4ded9509b9, type: 3}
+      propertyPath: attackRanges.Array.data[2].rowOffset
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: -3451958979471204722, guid: 2e1c7db757484e84f8d7fc4ded9509b9, type: 3}
+      propertyPath: attackRanges.Array.data[2].columnOffset
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -3451958979471204722, guid: 2e1c7db757484e84f8d7fc4ded9509b9, type: 3}
+      propertyPath: attackStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 56914792f761cc7429c604f0da53fbfa, type: 2}
+    - target: {fileID: -2011447602005666212, guid: 2e1c7db757484e84f8d7fc4ded9509b9, type: 3}
+      propertyPath: MAX_HEALTH
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1530983184707302874, guid: 2e1c7db757484e84f8d7fc4ded9509b9, type: 3}
       propertyPath: m_Name
       value: Magician Slave 2

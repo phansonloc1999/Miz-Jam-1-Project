@@ -11,9 +11,7 @@ public struct AttackRange
 
 public class Slave : MonoBehaviour
 {
-    [SerializeField] private float ATTACK_DAMAGE;
-
-    [SerializeField] private List<AttackRange> attackRanges;
+    [SerializeField] private SlaveAttackStats attackStats;
 
     [SerializeField] private GameObject master;
 
@@ -29,7 +27,7 @@ public class Slave : MonoBehaviour
 
     public float getAttackDamage()
     {
-        return ATTACK_DAMAGE;
+        return attackStats.ATTACK_DAMAGE;
     }
 
     public delegate void SelectCharacterHandler(GameObject selectedChar);
@@ -57,7 +55,7 @@ public class Slave : MonoBehaviour
         var tileContainingThisChar = transform.parent.gameObject;
         var currentTilePosition = map.getPositionOfTile(tileContainingThisChar);
         var newTilePositon = map.getPositionOfTile(targetTile);
-        foreach (var range in attackRanges)
+        foreach (var range in attackStats.attackRanges)
         {
             if (currentTilePosition.row + range.rowOffset == newTilePositon.row && currentTilePosition.column + range.columnOffset == newTilePositon.column)
                 return true;

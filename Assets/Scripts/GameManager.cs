@@ -41,10 +41,6 @@ namespace MyGame
             player1Movement.spawnAtTile(map.getTileAt(0, 0));
             player2Movement.spawnAtTile(map.getTileAt(2, 2));
 
-            player1Movement.moveToTile(map.getTileAt(1, 1));
-            player1Master.summonSlaveAt(0, 3, 3);
-            player2Master.summonSlaveAt(0, 3, 4);
-
             addOnSelectEventHandlers();
         }
 
@@ -95,14 +91,17 @@ namespace MyGame
             }
             else if (prevSelectedCharacter != targetCharacter) // Did player select the same character twice?
             {
+                // Slave attacks slave?
                 if (prevSelectedCharacter.tag == "Slave" && targetCharacter.tag == "Slave")
                 {
                     slaveTryAttackingAnother(targetCharacter);
                 }
+                // Slave attacks master?
                 else if (prevSelectedCharacter.tag == "Slave" && targetCharacter.tag == "Master")
                 {
                     var prevSelectedSlave = prevSelectedCharacter.GetComponent<Slave>();
-                    if (prevSelectedSlave.getMaster() != targetCharacter) // Did slave attack enemy master?
+                    // Slave attacks enemy master and the target is within its attack range?
+                    if (prevSelectedSlave.getMaster() != targetCharacter && prevSelectedSlave.canAttackAtTile(targetCharacter.transform.parent.gameObject))
                     {
                         targetCharacter.GetComponent<Health>().takeDamage(prevSelectedSlave.getAttackDamage());
                     }
