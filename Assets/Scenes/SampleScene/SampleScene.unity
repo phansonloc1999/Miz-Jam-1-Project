@@ -150,10 +150,6 @@ PrefabInstance:
       propertyPath: slavePrefabSet.Array.data[0]
       value: 
       objectReference: {fileID: 5549059156020549140, guid: 04ae24c7d81a13e488cb799a1653a21d, type: 3}
-    - target: {fileID: -3531133896181782341, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
-      propertyPath: movementRanges
-      value: 
-      objectReference: {fileID: 11400000, guid: fa40eac63f152164b89c2c4cd6f36fa6, type: 2}
     - target: {fileID: 7790672484328788740, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -434,10 +430,6 @@ PrefabInstance:
       propertyPath: slavePrefabSet.Array.data[2]
       value: 
       objectReference: {fileID: 4952022803388970304, guid: d97343942bc043d4f80f21a9b984132a, type: 3}
-    - target: {fileID: -3531133896181782341, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
-      propertyPath: movementRanges
-      value: 
-      objectReference: {fileID: 11400000, guid: fa40eac63f152164b89c2c4cd6f36fa6, type: 2}
     - target: {fileID: 7790672484328788740, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
       propertyPath: m_RootOrder
       value: 3

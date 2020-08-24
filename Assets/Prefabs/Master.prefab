@@ -127,15 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e458f4dcf1aa841ad9fe6845860507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementRanges:
-  - rowOffset: 1
-    columnOffset: 0
-  - rowOffset: -1
-    columnOffset: 0
-  - rowOffset: 0
-    columnOffset: 1
-  - rowOffset: 0
-    columnOffset: -1
+  movementRanges: {fileID: 11400000, guid: fa40eac63f152164b89c2c4cd6f36fa6, type: 2}
 --- !u!114 &-2748213952366266225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,4 +140,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a03be2151c0e8642a49f9b3e28e8482, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MAX_HEALTH: 0
   health: 3

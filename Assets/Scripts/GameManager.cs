@@ -71,41 +71,11 @@ namespace MyGame
         {
             if (prevSelectedCharacter == null)
             {
-                if (targetCharacter.tag == "Slave")
-                {
-                    var targetCharacterMaster = targetCharacter.GetComponent<Slave>().getMaster();
-                    if (
-                            (targetCharacterMaster == player1Master.gameObject && currentPlayerTurn == PLAYER_TURN.PLAYER_1)
-                            || (targetCharacterMaster == player2Master.gameObject && currentPlayerTurn == PLAYER_TURN.PLAYER_2)
-                       )
-                        prevSelectedCharacter = targetCharacter;
-                }
-                else if (targetCharacter.tag == "Master")
-                {
-                    if (
-                        (targetCharacter.name == "Player 1 Master" && currentPlayerTurn == PLAYER_TURN.PLAYER_1)
-                            || (targetCharacter.name == "Player 2 Master" && currentPlayerTurn == PLAYER_TURN.PLAYER_2)
-                        )
-                        prevSelectedCharacter = targetCharacter;
-                }
+                selectPrevCharacterProcessing(targetCharacter);
             }
             else if (prevSelectedCharacter != targetCharacter) // Did player select the same character twice?
             {
-                // Slave attacks slave?
-                if (prevSelectedCharacter.tag == "Slave" && targetCharacter.tag == "Slave")
-                {
-                    slaveTryAttackingAnother(targetCharacter);
-                }
-                // Slave attacks master?
-                else if (prevSelectedCharacter.tag == "Slave" && targetCharacter.tag == "Master")
-                {
-                    var prevSelectedSlave = prevSelectedCharacter.GetComponent<Slave>();
-                    // Slave attacks enemy master and the target is within its attack range?
-                    if (prevSelectedSlave.getMaster() != targetCharacter && prevSelectedSlave.canAttackAtTile(targetCharacter.transform.parent.gameObject))
-                    {
-                        targetCharacter.GetComponent<Health>().takeDamage(prevSelectedSlave.getAttackDamage());
-                    }
-                }
+                slaveAttackProcessing(targetCharacter);
 
                 prevSelectedCharacter = null;
             }
@@ -155,7 +125,6 @@ namespace MyGame
             }
         }
 
-
         /// <summary>
         /// Add OnCharacterSelect when new slave is summoned
         /// </summary>
@@ -164,6 +133,51 @@ namespace MyGame
             newSlave.GetComponent<Slave>().selectedChar += OnCharacterSelect;
 
             switchTurn();
+        }
+
+        private void slaveAttackProcessing(GameObject targetCharacter)
+        {
+            // Slave attacks slave?
+            if (prevSelectedCharacter.tag == "Slave" && targetCharacter.tag == "Slave")
+            {
+                slaveTryAttackingAnother(targetCharacter);
+            }
+            // Slave attacks master?
+            else if (prevSelectedCharacter.tag == "Slave" && targetCharacter.tag == "Master")
+            {
+                var prevSelectedSlave = prevSelectedCharacter.GetComponent<Slave>();
+                // Slave attacks enemy master and the target is within its attack range?
+                if (prevSelectedSlave.getMaster() != targetCharacter && prevSelectedSlave.canAttackAtTile(targetCharacter.transform.parent.gameObject))
+                {
+                    targetCharacter.GetComponent<Health>().takeDamage(prevSelectedSlave.getAttackDamage());
+                }
+            }
+            // Master attacks master?
+            else if (prevSelectedCharacter.tag == "Master" && targetCharacter.tag == "Master")
+            {
+                // TODO: Insert code here
+            }
+        }
+
+        private void selectPrevCharacterProcessing(GameObject targetCharacter)
+        {
+            if (targetCharacter.tag == "Slave")
+            {
+                var targetCharacterMaster = targetCharacter.GetComponent<Slave>().getMaster();
+                if (
+                        (targetCharacterMaster == player1Master.gameObject && currentPlayerTurn == PLAYER_TURN.PLAYER_1)
+                        || (targetCharacterMaster == player2Master.gameObject && currentPlayerTurn == PLAYER_TURN.PLAYER_2)
+                   )
+                    prevSelectedCharacter = targetCharacter;
+            }
+            else if (targetCharacter.tag == "Master")
+            {
+                if (
+                    (targetCharacter.name == "Player 1 Master" && currentPlayerTurn == PLAYER_TURN.PLAYER_1)
+                        || (targetCharacter.name == "Player 2 Master" && currentPlayerTurn == PLAYER_TURN.PLAYER_2)
+                    )
+                    prevSelectedCharacter = targetCharacter;
+            }
         }
     }
 }
