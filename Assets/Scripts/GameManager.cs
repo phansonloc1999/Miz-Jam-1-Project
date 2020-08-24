@@ -163,6 +163,8 @@ namespace MyGame
         public void OnSummoningSlave(GameObject newSlave)
         {
             newSlave.GetComponent<Slave>().selectedChar += OnCharacterSelect;
+
+            switchTurn();
         }
     }
 }
