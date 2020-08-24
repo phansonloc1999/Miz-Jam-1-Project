@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1530983184707302874, guid: 2e1c7db757484e84f8d7fc4ded9509b9, type: 3}
       propertyPath: m_Name
-      value: Original Slave
+      value: Magician Slave 2
       objectReference: {fileID: 0}
     - target: {fileID: 1530983184707302877, guid: 2e1c7db757484e84f8d7fc4ded9509b9, type: 3}
       propertyPath: m_LocalPosition.x

@@ -22,6 +22,12 @@ public class Master : MonoBehaviour
         map = GameObject.Find("Map").GetComponent<Map>();
     }
 
+    private void Start()
+    {
+        if (gameObject.name == "Player 2 Master")
+            GetComponent<SpriteRenderer>().material.color = Color.black;
+    }
+
     public void moveToTile(GameObject newTile)
     {
         transform.parent = newTile.transform;
@@ -55,6 +61,5 @@ public class Master : MonoBehaviour
     public List<GameObject> getSummonedSlaves()
     {
         return summonedSlaves;
-        
     }
 }

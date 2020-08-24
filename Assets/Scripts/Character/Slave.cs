@@ -10,6 +10,12 @@ public class Slave : MonoBehaviour
 
     [SerializeField] private GameObject master;
 
+    private void Start()
+    {
+        if (master.name == "Player 2 Master")
+            GetComponent<SpriteRenderer>().material.color = Color.black;
+    }
+
     public float getAttackDamage()
     {
         return ATTACK_DAMAGE;

@@ -131,9 +131,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
+      propertyPath: slavePrefabSet.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
       propertyPath: belongToPlayer2
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
+      propertyPath: slavePrefabSet.Array.data[1]
+      value: 
+      objectReference: {fileID: 307328246957567197, guid: e30a8acf66f79094eb71fe830432d59b, type: 3}
+    - target: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
+      propertyPath: slavePrefabSet.Array.data[2]
+      value: 
+      objectReference: {fileID: 5465674914853577561, guid: 11c5f4fb825182b4bb6cab3831233dfc, type: 3}
+    - target: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
+      propertyPath: slavePrefabSet.Array.data[0]
+      value: 
+      objectReference: {fileID: 1403588043904501044, guid: d6220f7fbf37d16448b0c97fb56e760c, type: 3}
     - target: {fileID: 7790672484328788740, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
       propertyPath: m_RootOrder
       value: 4
