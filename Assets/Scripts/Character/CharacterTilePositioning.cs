@@ -9,7 +9,7 @@ public struct MovementRange
     public int columnOffset;
 }
 
-public class CharacterPosition : MonoBehaviour
+public class CharacterTilePositioning : MonoBehaviour
 {
     static Map map;
 
@@ -47,8 +47,8 @@ public class CharacterPosition : MonoBehaviour
     private bool isWithinMovementRange(GameObject newTile)
     {
         var tileContainingThisChar = transform.parent.gameObject;
-        var currentTilePosition = map.getTilePositionOf(tileContainingThisChar);
-        var newTilePositon = map.getTilePositionOf(newTile);
+        var currentTilePosition = map.getPositionOfTile(tileContainingThisChar);
+        var newTilePositon = map.getPositionOfTile(newTile);
         foreach (var range in movementRanges)
         {
             if (currentTilePosition.row + range.rowOffset == newTilePositon.row && currentTilePosition.column + range.columnOffset == newTilePositon.column)

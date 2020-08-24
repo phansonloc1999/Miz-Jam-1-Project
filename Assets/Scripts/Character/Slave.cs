@@ -2,18 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public struct AttackRange
+{
+    public int rowOffset;
+    public int columnOffset;
+}
+
 public class Slave : MonoBehaviour
 {
     [SerializeField] private float ATTACK_DAMAGE;
 
-    [SerializeField] private float ATTACK_RANGE;
+    [SerializeField] private List<AttackRange> attackRanges;
 
     [SerializeField] private GameObject master;
+
+    [SerializeField] private Map map;
 
     private void Start()
     {
         if (master.name == "Player 2 Master")
             GetComponent<SpriteRenderer>().material.color = Color.black;
+
+        map = GameObject.Find("Map").GetComponent<Map>();
     }
 
     public float getAttackDamage()
@@ -39,5 +50,18 @@ public class Slave : MonoBehaviour
     public GameObject getMaster()
     {
         return master;
+    }
+
+    public bool canAttackAtTile(GameObject targetTile)
+    {
+        var tileContainingThisChar = transform.parent.gameObject;
+        var currentTilePosition = map.getPositionOfTile(tileContainingThisChar);
+        var newTilePositon = map.getPositionOfTile(targetTile);
+        foreach (var range in attackRanges)
+        {
+            if (currentTilePosition.row + range.rowOffset == newTilePositon.row && currentTilePosition.column + range.columnOffset == newTilePositon.column)
+                return true;
+        }
+        return false;
     }
 }

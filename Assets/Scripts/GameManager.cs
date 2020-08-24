@@ -19,7 +19,7 @@ namespace MyGame
         }
         private static PLAYER_TURN currentPlayerTurn = PLAYER_TURN.PLAYER_1;
 
-        [SerializeField] private CharacterPosition player1Movement, player2Movement = null;
+        [SerializeField] private CharacterTilePositioning player1Movement, player2Movement = null;
 
         [SerializeField] private Master player1Master, player2Master;
 
@@ -36,8 +36,8 @@ namespace MyGame
             var player2 = GameObject.Find("Player 2 Master");
             player1Master = player1.GetComponent<Master>();
             player2Master = player2.GetComponent<Master>();
-            player1Movement = player1.GetComponent<CharacterPosition>();
-            player2Movement = player2.GetComponent<CharacterPosition>();
+            player1Movement = player1.GetComponent<CharacterTilePositioning>();
+            player2Movement = player2.GetComponent<CharacterTilePositioning>();
 
             player1Movement.spawnAtTile(map.getTileAt(0, 0));
             player2Movement.spawnAtTile(map.getTileAt(2, 2));
@@ -117,7 +117,7 @@ namespace MyGame
         {
             if (prevSelectedCharacter != null && selectedTile.transform.childCount == 0)
             {
-                prevSelectedCharacter.GetComponent<CharacterPosition>().moveToTile(selectedTile);
+                prevSelectedCharacter.GetComponent<CharacterTilePositioning>().moveToTile(selectedTile);
 
                 switchTurn();
                 prevSelectedCharacter = null;
@@ -140,11 +140,12 @@ namespace MyGame
 
         private void slaveTryAttackingAnother(GameObject targetCharacter)
         {
-            var prevSelectedCharMaster = prevSelectedCharacter.GetComponent<Slave>().getMaster();
+            var prevSlave = prevSelectedCharacter.GetComponent<Slave>();
+            var prevSelectedCharMaster = prevSlave.getMaster();
             var selectedCharMaster = targetCharacter.GetComponent<Slave>().getMaster();
 
-            // Only deal damage if 2 slaves aren't from the same master
-            if (prevSelectedCharMaster != selectedCharMaster)
+            // Only deal damage if 2 slaves aren't from the same master and prev slave can attack because target is within its attack range
+            if (prevSelectedCharMaster != selectedCharMaster && prevSlave.canAttackAtTile(targetCharacter.transform.parent.gameObject))
             {
                 var damage = prevSelectedCharacter.GetComponent<Slave>().getAttackDamage();
                 targetCharacter.GetComponent<Health>().takeDamage(damage);

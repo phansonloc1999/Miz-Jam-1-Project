@@ -8,8 +8,7 @@ public class Master : MonoBehaviour
 
     [SerializeField] private List<GameObject> summonedSlaves;
 
-    [SerializeField]
-    private List<GameObject> slavePrefabSet;
+    [SerializeField] private List<GameObject> slavePrefabSet;
 
     public List<GameObject> SlavePrefabSet
     {

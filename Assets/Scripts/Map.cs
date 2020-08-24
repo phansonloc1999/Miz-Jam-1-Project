@@ -39,9 +39,9 @@ public class Map : MonoBehaviour
                 tiles[row, column] = Instantiate(tilePrefab,
                     new Vector3(transform.position.x + (column - 1) * TILE_WIDTH, transform.position.y - (row - 1) * TILE_HEIGHT, transform.position.z),
                     Quaternion.identity, transform
-                );            
+                );
             }
-        }        
+        }
     }
 
     public GameObject getTileAt(int row, int column)
@@ -49,7 +49,7 @@ public class Map : MonoBehaviour
         return tiles[row, column];
     }
 
-    public TilePosition getTilePositionOf(GameObject targetTile)
+    public TilePosition getPositionOfTile(GameObject targetTile)
     {
         for (int row = 0; row < NUM_OF_TILE_ROW; row++)
         {
