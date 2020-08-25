@@ -9,24 +9,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdbd0d3e344e7a443a51d4524b0bf0f9, type: 3}
-  m_Name: MagicianSlave1AttackStats
+  m_Script: {fileID: 11500000, guid: 6d2dd3aa697038a4e95a932c1ca6c124, type: 3}
+  m_Name: KnightSlave1&2MovementRanges
   m_EditorClassIdentifier: 
-  ATTACK_DAMAGE: 3
-  attackRanges:
+  ranges:
   - rowOffset: -1
-    columnOffset: 1
+    columnOffset: 0
   - rowOffset: -2
-    columnOffset: 2
+    columnOffset: 0
   - rowOffset: 1
+    columnOffset: 0
+  - rowOffset: 2
+    columnOffset: 0
+  - rowOffset: 0
+    columnOffset: -1
+  - rowOffset: 0
+    columnOffset: -2
+  - rowOffset: 0
     columnOffset: 1
-  - rowOffset: 2
+  - rowOffset: 0
     columnOffset: 2
-  - rowOffset: 1
-    columnOffset: -1
-  - rowOffset: 2
-    columnOffset: -2
-  - rowOffset: -1
-    columnOffset: -1
-  - rowOffset: -2
-    columnOffset: -2

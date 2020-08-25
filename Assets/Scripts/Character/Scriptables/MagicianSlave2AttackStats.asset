@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdbd0d3e344e7a443a51d4524b0bf0f9, type: 3}
+  m_Name: MagicianSlave2AttackStats
+  m_EditorClassIdentifier: 
+  ATTACK_DAMAGE: 1
+  attackRanges:
+  - rowOffset: -1
+    columnOffset: 1
+  - rowOffset: -2
+    columnOffset: 2
+  - rowOffset: -3
+    columnOffset: 3
+  - rowOffset: 1
+    columnOffset: 1
+  - rowOffset: 2
+    columnOffset: 2
+  - rowOffset: 3
+    columnOffset: 3
+  - rowOffset: 1
+    columnOffset: -1
+  - rowOffset: 2
+    columnOffset: -2
+  - rowOffset: 3
+    columnOffset: -3
+  - rowOffset: -1
+    columnOffset: -1
+  - rowOffset: -2
+    columnOffset: -2
+  - rowOffset: -3
+    columnOffset: -3
