@@ -131,25 +131,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
-      propertyPath: slavePrefabSet.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
       propertyPath: belongToPlayer2
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
-      propertyPath: slavePrefabSet.Array.data[1]
+      propertyPath: slaveSetStats.Array.data[0]
       value: 
-      objectReference: {fileID: 3599559371795681352, guid: b3f480680006d61498f80b86337cd279, type: 3}
+      objectReference: {fileID: 11400000, guid: 027f798579d31d6448673ed1c7d4c87b, type: 2}
     - target: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
-      propertyPath: slavePrefabSet.Array.data[2]
+      propertyPath: slaveSetStats.Array.data[1]
       value: 
-      objectReference: {fileID: 4952022803388970304, guid: d97343942bc043d4f80f21a9b984132a, type: 3}
+      objectReference: {fileID: 11400000, guid: 027f798579d31d6448673ed1c7d4c87b, type: 2}
     - target: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
-      propertyPath: slavePrefabSet.Array.data[0]
+      propertyPath: slaveSetStats.Array.data[2]
       value: 
-      objectReference: {fileID: 5549059156020549140, guid: 04ae24c7d81a13e488cb799a1653a21d, type: 3}
+      objectReference: {fileID: 11400000, guid: 027f798579d31d6448673ed1c7d4c87b, type: 2}
     - target: {fileID: 7790672484328788740, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -411,25 +407,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
-      propertyPath: slavePrefabSet.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
       propertyPath: belongToPlayer1
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
-      propertyPath: slavePrefabSet.Array.data[0]
+      propertyPath: slaveSetStats.Array.data[0]
       value: 
-      objectReference: {fileID: 5549059156020549140, guid: 04ae24c7d81a13e488cb799a1653a21d, type: 3}
+      objectReference: {fileID: 11400000, guid: 027f798579d31d6448673ed1c7d4c87b, type: 2}
     - target: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
-      propertyPath: slavePrefabSet.Array.data[1]
+      propertyPath: slaveSetStats.Array.data[1]
       value: 
-      objectReference: {fileID: 3599559371795681352, guid: b3f480680006d61498f80b86337cd279, type: 3}
+      objectReference: {fileID: 11400000, guid: 027f798579d31d6448673ed1c7d4c87b, type: 2}
     - target: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
-      propertyPath: slavePrefabSet.Array.data[2]
+      propertyPath: slaveSetStats.Array.data[2]
       value: 
-      objectReference: {fileID: 4952022803388970304, guid: d97343942bc043d4f80f21a9b984132a, type: 3}
+      objectReference: {fileID: 11400000, guid: 027f798579d31d6448673ed1c7d4c87b, type: 2}
     - target: {fileID: 7790672484328788740, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
       propertyPath: m_RootOrder
       value: 3

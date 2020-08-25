@@ -13,7 +13,7 @@ public class CharacterTilePositioning : MonoBehaviour
 {
     static Map map;
 
-    [SerializeField] private MovementRanges movementRanges;
+    [SerializeField] private List<MovementRange> movementRanges;
 
     // Start is called before the first frame update
     void Start()
@@ -48,11 +48,16 @@ public class CharacterTilePositioning : MonoBehaviour
         var tileContainingThisChar = transform.parent.gameObject;
         var currentTilePosition = map.getPositionOfTile(tileContainingThisChar);
         var newTilePositon = map.getPositionOfTile(newTile);
-        foreach (var range in movementRanges.ranges)
+        foreach (var range in movementRanges)
         {
             if (currentTilePosition.row + range.rowOffset == newTilePositon.row && currentTilePosition.column + range.columnOffset == newTilePositon.column)
                 return true;
         }
         return false;
+    }
+
+    public void loadMovementRanges(List<MovementRange> movementRanges)
+    {
+        this.movementRanges = movementRanges;
     }
 }

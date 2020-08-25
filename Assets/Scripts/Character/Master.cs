@@ -8,12 +8,14 @@ public class Master : MonoBehaviour
 
     [SerializeField] private List<GameObject> summonedSlaves;
 
-    [SerializeField] private List<GameObject> slavePrefabSet;
+    [SerializeField] private List<CharacterData> slaveSetStats;
 
-    public List<GameObject> SlavePrefabSet
+    [SerializeField] private GameObject slavePrefab;
+
+    public List<CharacterData> SlaveSetStats
     {
-        get { return slavePrefabSet; }
-        set { slavePrefabSet = value; }
+        get { return slaveSetStats; }
+        set { slaveSetStats = value; }
     }
 
     private void Awake()
@@ -36,11 +38,15 @@ public class Master : MonoBehaviour
 
     public void summonSlaveAt(int slaveIndexInSet, int atMapRow, int atMapColumn)
     {
-        var newSlave = Instantiate(slavePrefabSet[slaveIndexInSet], Vector3.zero, transform.rotation, map.getTileAt(atMapRow, atMapColumn).transform);
+        var newSlave = Instantiate(slavePrefab, Vector3.zero, transform.rotation, map.getTileAt(atMapRow, atMapColumn).transform);
+
         newSlave.transform.up = gameObject.transform.up;
         newSlave.transform.localPosition = new Vector3(0, 0, -0.5f);
         newSlave.transform.localRotation = Quaternion.Euler(Vector3.zero);
-        newSlave.GetComponent<Slave>().setMaster(this.gameObject);
+
+        var newSlaveScript = newSlave.GetComponent<Slave>();
+        newSlaveScript.setMaster(this.gameObject);
+        newSlaveScript.loadScriptableData(slaveSetStats[slaveIndexInSet]);
 
         GameObject.Find("Game Manager").GetComponent<MyGame.GameManager>().OnSummoningSlave(newSlave);
 

@@ -6,11 +6,6 @@ public class Health : MonoBehaviour
 
     [SerializeField] private float health;
 
-    private void Start()
-    {
-        health = MAX_HEALTH;
-    }
-
     public void takeDamage(float ammount)
     {
         health -= ammount;
@@ -28,5 +23,11 @@ public class Health : MonoBehaviour
 
             Destroy(gameObject);
         }
+    }
+
+    public void loadMaxHealth(float maxHealth)
+    {
+        MAX_HEALTH = maxHealth;
+        health = MAX_HEALTH;
     }
 }

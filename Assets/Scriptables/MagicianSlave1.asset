@@ -9,32 +9,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdbd0d3e344e7a443a51d4524b0bf0f9, type: 3}
-  m_Name: MagicianSlave2AttackStats
+  m_Script: {fileID: 11500000, guid: fb2b1ee87adddbc4eb6667409b9ddbed, type: 3}
+  m_Name: MagicianSlave1
   m_EditorClassIdentifier: 
+  sprite: {fileID: 7493968074058804848, guid: cb31bd1eeb2c2324babf368f8520a771, type: 3}
+  MAX_HEALTH: 4
   ATTACK_DAMAGE: 1
   attackRanges:
   - rowOffset: -1
     columnOffset: 1
   - rowOffset: -2
     columnOffset: 2
-  - rowOffset: -3
-    columnOffset: 3
   - rowOffset: 1
     columnOffset: 1
   - rowOffset: 2
     columnOffset: 2
-  - rowOffset: 3
-    columnOffset: 3
   - rowOffset: 1
     columnOffset: -1
   - rowOffset: 2
     columnOffset: -2
-  - rowOffset: 3
-    columnOffset: -3
   - rowOffset: -1
     columnOffset: -1
   - rowOffset: -2
     columnOffset: -2
-  - rowOffset: -3
-    columnOffset: -3
+  movementRanges:
+  - rowOffset: -1
+    columnOffset: 0
+  - rowOffset: 1
+    columnOffset: 0
+  - rowOffset: 0
+    columnOffset: 1
+  - rowOffset: 0
+    columnOffset: -1

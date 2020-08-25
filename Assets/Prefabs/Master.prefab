@@ -113,8 +113,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 0}
   summonedSlaves: []
-  slavePrefabSet:
-  - {fileID: 1530983184707302874, guid: 2e1c7db757484e84f8d7fc4ded9509b9, type: 3}
+  slaveSetStats:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  slavePrefab: {fileID: 1530983184707302874, guid: 2e1c7db757484e84f8d7fc4ded9509b9, type: 3}
 --- !u!114 &-3531133896181782341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,7 +130,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e458f4dcf1aa841ad9fe6845860507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementRanges: {fileID: 11400000, guid: fa40eac63f152164b89c2c4cd6f36fa6, type: 2}
+  movementRanges:
+  - rowOffset: 1
+    columnOffset: 0
+  - rowOffset: -1
+    columnOffset: 0
+  - rowOffset: 0
+    columnOffset: 1
+  - rowOffset: 0
+    columnOffset: -1
+  - rowOffset: -1
+    columnOffset: -1
+  - rowOffset: 1
+    columnOffset: 1
+  - rowOffset: -1
+    columnOffset: 1
+  - rowOffset: 1
+    columnOffset: -1
 --- !u!114 &-2748213952366266225
 MonoBehaviour:
   m_ObjectHideFlags: 0
