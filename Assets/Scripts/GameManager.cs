@@ -50,11 +50,11 @@ namespace MyGame
             {
                 if (currentPlayerTurn == PLAYER_TURN.PLAYER_1)
                 {
-                    player1Master.summonSlaveAt(Random.Range(0, player1Master.SlaveSetStats.Count), 1, 1);
+                    player1Master.summonSlaveAt(Random.Range(0, player1Master.SlavesData.Count), 1, 1);
                 }
                 else if (currentPlayerTurn == PLAYER_TURN.PLAYER_2)
                 {
-                    player2Master.summonSlaveAt(Random.Range(0, player2Master.SlaveSetStats.Count), 1, 1);
+                    player2Master.summonSlaveAt(Random.Range(0, player2Master.SlavesData.Count), 1, 1);
                 }
             }
         }

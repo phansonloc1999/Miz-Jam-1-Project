@@ -15,7 +15,31 @@ MonoBehaviour:
   sprite: {fileID: 5650459711054198812, guid: cb31bd1eeb2c2324babf368f8520a771, type: 3}
   MAX_HEALTH: 4
   ATTACK_DAMAGE: 1
-  attackRanges: []
+  attackRanges:
+  - rowOffset: -2
+    columnOffset: 0
+  - rowOffset: -1
+    columnOffset: 1
+  - rowOffset: -2
+    columnOffset: 2
+  - rowOffset: 0
+    columnOffset: 2
+  - rowOffset: 1
+    columnOffset: 1
+  - rowOffset: 2
+    columnOffset: 2
+  - rowOffset: 2
+    columnOffset: 0
+  - rowOffset: 1
+    columnOffset: -1
+  - rowOffset: 2
+    columnOffset: -2
+  - rowOffset: 0
+    columnOffset: -2
+  - rowOffset: -1
+    columnOffset: -1
+  - rowOffset: -2
+    columnOffset: -2
   movementRanges:
   - rowOffset: 2
     columnOffset: 0

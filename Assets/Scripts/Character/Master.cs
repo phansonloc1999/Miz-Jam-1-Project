@@ -8,14 +8,15 @@ public class Master : MonoBehaviour
 
     [SerializeField] private List<GameObject> summonedSlaves;
 
-    [SerializeField] private List<SlaveData> slaveDataSet;
+    [SerializeField] private List<SlaveData> slavesData;
+    [SerializeField] private SlaveDataSet slaveDataSet;
 
     [SerializeField] private GameObject slavePrefab;
 
-    public List<SlaveData> SlaveSetStats
+    public List<SlaveData> SlavesData
     {
-        get { return slaveDataSet; }
-        set { slaveDataSet = value; }
+        get { return slavesData; }
+        set { slavesData = value; }
     }
 
     private void Awake()
@@ -25,8 +26,8 @@ public class Master : MonoBehaviour
 
     private void Start()
     {
-        if (gameObject.name == "Player 2 Master")
-            GetComponent<SpriteRenderer>().material.color = Color.black;
+        setPlayer2BlackColor();
+        loadSlavesDataFromSet();
     }
 
     public void moveToTile(GameObject newTile)
@@ -46,7 +47,7 @@ public class Master : MonoBehaviour
 
         var newSlaveScript = newSlave.GetComponent<Slave>();
         newSlaveScript.setMaster(this.gameObject);
-        newSlaveScript.loadScriptableData(slaveDataSet[slaveIndexInSet]);
+        newSlaveScript.loadScriptableData(slavesData[slaveIndexInSet]);
 
         GameObject.Find("Game Manager").GetComponent<MyGame.GameManager>().OnSummoningSlave(newSlave);
 
@@ -66,5 +67,18 @@ public class Master : MonoBehaviour
     public List<GameObject> getSummonedSlaves()
     {
         return summonedSlaves;
+    }
+
+    private void loadSlavesDataFromSet()
+    {
+        slavesData.Add(slaveDataSet.slave1);
+        slavesData.Add(slaveDataSet.slave2);
+        slavesData.Add(slaveDataSet.slave3);
+    }
+
+    private void setPlayer2BlackColor()
+    {
+        if (gameObject.name == "Player 2 Master")
+            GetComponent<SpriteRenderer>().material.color = Color.black;
     }
 }
