@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c88150ffd4795d46a67df3313fa24d3, type: 3}
+  m_Name: Master_Magician
+  m_EditorClassIdentifier: 
+  masterSprite: {fileID: -557202015277469003, guid: cb31bd1eeb2c2324babf368f8520a771, type: 3}
+  masterName: Erudite Magician
+  HP: 3
+  lstSlave:
+  - {fileID: 11400000, guid: 027f798579d31d6448673ed1c7d4c87b, type: 2}
+  - {fileID: 11400000, guid: 83f95272379d1fd4f8457f31af293612, type: 2}
+  - {fileID: 11400000, guid: d0656be5b451f9e48ac31e8b21d5be6d, type: 2}
