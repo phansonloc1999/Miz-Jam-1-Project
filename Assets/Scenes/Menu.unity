@@ -1364,11 +1364,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6a5c47cfadce874ba5b81c0aabe653b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _labelObj: {fileID: 1925839609}
+  _mainMenu: {fileID: 591499985}
+  _imgLabel: {fileID: 1925839609}
+  _imgMaster: {fileID: 651475651}
+  _tmpName: {fileID: 1312956551}
   _uiMapChoiceArrowLeft: {fileID: 356494776}
   _uiMapChoiceArrowRight: {fileID: 1157385657}
   _labelPlayer1: {fileID: -1481691154462526465, guid: 6df00ec6865e5704691f1259c55b7402, type: 3}
   _labelPlayer2: {fileID: 21300000, guid: 2c92bab45b16f6943bb38d145dbffc5f, type: 3}
+  masterListData: {fileID: 11400000, guid: d628b2f07f122d34186efc4f7131ad06, type: 2}
 --- !u!1 &1312956549
 GameObject:
   m_ObjectHideFlags: 0
