@@ -131,6 +131,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
+      propertyPath: slaveDataSet.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
       propertyPath: belongToPlayer2
       value: 1
       objectReference: {fileID: 0}
@@ -146,6 +150,18 @@ PrefabInstance:
       propertyPath: slaveSetStats.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: 027f798579d31d6448673ed1c7d4c87b, type: 2}
+    - target: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
+      propertyPath: slaveDataSet.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: ab952cc5b65496c43bd309dc6a1a0f42, type: 2}
+    - target: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
+      propertyPath: slaveDataSet.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: bd59b50d74b6f244cb893a532a4c0f80, type: 2}
+    - target: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
+      propertyPath: slaveDataSet.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 45769bf3989488b44ba543eea8b02c31, type: 2}
     - target: {fileID: 7790672484328788740, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -169,7 +185,7 @@ PrefabInstance:
     - target: {fileID: 7790672484328788743, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -557202015277469003, guid: cb31bd1eeb2c2324babf368f8520a771, type: 3}
+      objectReference: {fileID: 8516098919168496969, guid: cb31bd1eeb2c2324babf368f8520a771, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
 --- !u!114 &130914545 stripped
@@ -379,8 +395,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 701d36c76cbc5d14abaf78ba33bbb664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1Movement: {fileID: 0}
-  player2Movement: {fileID: 0}
+  player1Positioning: {fileID: 0}
+  player2Positioning: {fileID: 0}
   player1Master: {fileID: 2084040526}
   player2Master: {fileID: 130914545}
   map: {fileID: 612288093}
@@ -407,6 +423,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
+      propertyPath: slaveDataSet.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
       propertyPath: belongToPlayer1
       value: 1
       objectReference: {fileID: 0}
@@ -422,6 +442,18 @@ PrefabInstance:
       propertyPath: slaveSetStats.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: 027f798579d31d6448673ed1c7d4c87b, type: 2}
+    - target: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
+      propertyPath: slaveDataSet.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 027f798579d31d6448673ed1c7d4c87b, type: 2}
+    - target: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
+      propertyPath: slaveDataSet.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 83f95272379d1fd4f8457f31af293612, type: 2}
+    - target: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
+      propertyPath: slaveDataSet.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: d0656be5b451f9e48ac31e8b21d5be6d, type: 2}
     - target: {fileID: 7790672484328788740, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
       propertyPath: m_RootOrder
       value: 3

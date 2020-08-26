@@ -4,64 +4,64 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -557202015277469003
-    second: arrmy_master_0
+    second: magician_master
   - first:
       213: -1334872523501225420
-    second: arrmy_master_1
+    second: magician_slave_1
   - first:
       213: 7493968074058804848
-    second: arrmy_master_2
+    second: magician_slave_2
   - first:
       213: -4976774701402662319
-    second: arrmy_master_3
+    second: magician_slave_3
   - first:
       213: 8516098919168496969
-    second: arrmy_master_4
+    second: knight_master
   - first:
       213: -181838043378322049
-    second: arrmy_master_5
+    second: knight_slave_1
   - first:
       213: 2842046900512603743
-    second: arrmy_master_6
+    second: bandit_master
   - first:
       213: -876618651031125427
-    second: arrmy_master_7
+    second: bandit_slave_1
   - first:
       213: 3940011445588836528
-    second: arrmy_master_8
+    second: farmer_master
   - first:
       213: -7636887217513590046
-    second: arrmy_master_9
+    second: farmer_slave_1
   - first:
       213: 8711829341055012752
-    second: arrmy_master_10
+    second: ghost_master
   - first:
       213: -4610708753898232703
-    second: arrmy_master_11
+    second: ghost_slave_2
   - first:
       213: -5520781534030053585
-    second: arrmy_master_12
+    second: knight_slave_2
   - first:
       213: -4088529371629895262
-    second: arrmy_master_13
+    second: knight_slave_3
   - first:
       213: -3949295550505194755
-    second: arrmy_master_14
+    second: bandit_slave_2
   - first:
       213: -840909332952744649
-    second: arrmy_master_15
+    second: bandit_slave_3
   - first:
       213: 860375067824239181
-    second: arrmy_master_16
+    second: farmer_slave_2
   - first:
       213: 3938169433961179981
-    second: arrmy_master_17
+    second: farmer_slave_3
   - first:
       213: -7010156034643952163
-    second: arrmy_master_18
+    second: ghost_slave_1
   - first:
       213: 5650459711054198812
-    second: arrmy_master_19
+    second: ghost_slave_3
   - first:
       213: 528937514628098499
     second: arrmy_master_20
@@ -185,7 +185,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: arrmy_master_0
+      name: magician_master
       rect:
         serializedVersion: 2
         x: 3
@@ -193,7 +193,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -206,7 +206,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arrmy_master_1
+      name: magician_slave_1
       rect:
         serializedVersion: 2
         x: 22
@@ -214,7 +214,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -227,7 +227,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arrmy_master_2
+      name: magician_slave_2
       rect:
         serializedVersion: 2
         x: 38
@@ -235,7 +235,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -248,7 +248,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arrmy_master_3
+      name: magician_slave_3
       rect:
         serializedVersion: 2
         x: 54
@@ -256,7 +256,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -269,7 +269,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arrmy_master_4
+      name: knight_master
       rect:
         serializedVersion: 2
         x: 3
@@ -277,7 +277,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -290,7 +290,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arrmy_master_5
+      name: knight_slave_1
       rect:
         serializedVersion: 2
         x: 22
@@ -298,7 +298,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -311,7 +311,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arrmy_master_6
+      name: bandit_master
       rect:
         serializedVersion: 2
         x: 3
@@ -319,7 +319,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -332,7 +332,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arrmy_master_7
+      name: bandit_slave_1
       rect:
         serializedVersion: 2
         x: 22
@@ -340,7 +340,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -353,7 +353,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arrmy_master_8
+      name: farmer_master
       rect:
         serializedVersion: 2
         x: 3
@@ -361,7 +361,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -374,7 +374,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arrmy_master_9
+      name: farmer_slave_1
       rect:
         serializedVersion: 2
         x: 22
@@ -382,7 +382,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -395,7 +395,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arrmy_master_10
+      name: ghost_master
       rect:
         serializedVersion: 2
         x: 3
@@ -403,7 +403,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -416,7 +416,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arrmy_master_11
+      name: ghost_slave_2
       rect:
         serializedVersion: 2
         x: 38
@@ -424,7 +424,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -437,7 +437,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arrmy_master_12
+      name: knight_slave_2
       rect:
         serializedVersion: 2
         x: 38
@@ -445,7 +445,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -458,7 +458,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arrmy_master_13
+      name: knight_slave_3
       rect:
         serializedVersion: 2
         x: 54
@@ -466,7 +466,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -479,7 +479,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arrmy_master_14
+      name: bandit_slave_2
       rect:
         serializedVersion: 2
         x: 38
@@ -487,7 +487,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -500,7 +500,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arrmy_master_15
+      name: bandit_slave_3
       rect:
         serializedVersion: 2
         x: 54
@@ -508,7 +508,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -521,7 +521,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arrmy_master_16
+      name: farmer_slave_2
       rect:
         serializedVersion: 2
         x: 38
@@ -529,7 +529,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -542,7 +542,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arrmy_master_17
+      name: farmer_slave_3
       rect:
         serializedVersion: 2
         x: 54
@@ -550,7 +550,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -563,7 +563,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arrmy_master_18
+      name: ghost_slave_1
       rect:
         serializedVersion: 2
         x: 22
@@ -571,7 +571,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -584,7 +584,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arrmy_master_19
+      name: ghost_slave_3
       rect:
         serializedVersion: 2
         x: 54
@@ -592,7 +592,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

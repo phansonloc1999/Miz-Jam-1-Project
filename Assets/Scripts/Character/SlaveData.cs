@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CharacterData", menuName = "CharacterData", order = 0)]
-public class CharacterData : ScriptableObject
+[CreateAssetMenu(fileName = "Slave", menuName = "SlaveData", order = 0)]
+public class SlaveData : ScriptableObject
 {
     public Sprite sprite;
 

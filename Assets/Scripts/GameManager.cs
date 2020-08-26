@@ -19,7 +19,7 @@ namespace MyGame
         }
         private static PLAYER_TURN currentPlayerTurn = PLAYER_TURN.PLAYER_1;
 
-        [SerializeField] private CharacterTilePositioning player1Movement, player2Movement = null;
+        [SerializeField] private CharacterTilePositioning player1Positioning, player2Positioning = null;
 
         [SerializeField] private Master player1Master, player2Master;
 
@@ -35,11 +35,11 @@ namespace MyGame
             var player2 = GameObject.Find("Player 2 Master");
             player1Master = player1.GetComponent<Master>();
             player2Master = player2.GetComponent<Master>();
-            player1Movement = player1.GetComponent<CharacterTilePositioning>();
-            player2Movement = player2.GetComponent<CharacterTilePositioning>();
+            player1Positioning = player1.GetComponent<CharacterTilePositioning>();
+            player2Positioning = player2.GetComponent<CharacterTilePositioning>();
 
-            player1Movement.spawnAtTile(map.getTileAt(0, 0));
-            player2Movement.spawnAtTile(map.getTileAt(2, 2));
+            player1Positioning.spawnAtTile(map.getTileAt(0, 0));
+            player2Positioning.spawnAtTile(map.getTileAt(2, 2));
 
             addOnSelectEventHandlers();
         }

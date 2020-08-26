@@ -11,7 +11,7 @@ public struct AttackRange
 
 public class Slave : MonoBehaviour
 {
-    [SerializeField] private CharacterData data;
+    [SerializeField] private SlaveData data;
 
     [SerializeField] private GameObject master;
 
@@ -63,7 +63,7 @@ public class Slave : MonoBehaviour
         return false;
     }
 
-    public void loadScriptableData(CharacterData data)
+    public void loadScriptableData(SlaveData data)
     {
         this.data = data;
 

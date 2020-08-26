@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb2b1ee87adddbc4eb6667409b9ddbed, type: 3}
-  m_Name: MagicianSlave1
+  m_Name: MagicianSlave3
   m_EditorClassIdentifier: 
-  sprite: {fileID: -1334872523501225420, guid: cb31bd1eeb2c2324babf368f8520a771, type: 3}
+  sprite: {fileID: -4976774701402662319, guid: cb31bd1eeb2c2324babf368f8520a771, type: 3}
   MAX_HEALTH: 4
-  ATTACK_DAMAGE: 1
+  ATTACK_DAMAGE: 2
   attackRanges:
   - rowOffset: -1
     columnOffset: 1
@@ -32,6 +32,14 @@ MonoBehaviour:
     columnOffset: -1
   - rowOffset: -2
     columnOffset: -2
+  - rowOffset: -3
+    columnOffset: -3
+  - rowOffset: 3
+    columnOffset: 3
+  - rowOffset: -3
+    columnOffset: 3
+  - rowOffset: 3
+    columnOffset: -3
   movementRanges:
   - rowOffset: -1
     columnOffset: 0

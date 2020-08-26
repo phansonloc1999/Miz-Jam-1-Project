@@ -8,14 +8,14 @@ public class Master : MonoBehaviour
 
     [SerializeField] private List<GameObject> summonedSlaves;
 
-    [SerializeField] private List<CharacterData> slaveSetStats;
+    [SerializeField] private List<SlaveData> slaveDataSet;
 
     [SerializeField] private GameObject slavePrefab;
 
-    public List<CharacterData> SlaveSetStats
+    public List<SlaveData> SlaveSetStats
     {
-        get { return slaveSetStats; }
-        set { slaveSetStats = value; }
+        get { return slaveDataSet; }
+        set { slaveDataSet = value; }
     }
 
     private void Awake()
@@ -46,7 +46,7 @@ public class Master : MonoBehaviour
 
         var newSlaveScript = newSlave.GetComponent<Slave>();
         newSlaveScript.setMaster(this.gameObject);
-        newSlaveScript.loadScriptableData(slaveSetStats[slaveIndexInSet]);
+        newSlaveScript.loadScriptableData(slaveDataSet[slaveIndexInSet]);
 
         GameObject.Find("Game Manager").GetComponent<MyGame.GameManager>().OnSummoningSlave(newSlave);
 
