@@ -11,7 +11,7 @@ public static class MOUSE_BUTTON
 namespace MyGame
 {
 
-    public class GameManager : MonoBehaviour
+    public partial class GameManager : MonoBehaviour
     {
         private enum PLAYER_TURN
         {
@@ -26,6 +26,8 @@ namespace MyGame
         [SerializeField] private Map map;
 
         [SerializeField] private GameObject prevSelectedCharacter;
+
+        [SerializeField] private DiceManager diceManager;
 
         private void Start()
         {
@@ -50,11 +52,11 @@ namespace MyGame
             {
                 if (currentPlayerTurn == PLAYER_TURN.PLAYER_1)
                 {
-                    player1Master.summonSlaveAt(Random.Range(0, player1Master.SlavesData.Count), 1, 1);
+                    trySummoningSlaveWithDice(player1Master);
                 }
                 else if (currentPlayerTurn == PLAYER_TURN.PLAYER_2)
                 {
-                    player2Master.summonSlaveAt(Random.Range(0, player2Master.SlavesData.Count), 1, 1);
+                    trySummoningSlaveWithDice(player2Master);
                 }
             }
         }
@@ -108,12 +110,12 @@ namespace MyGame
 
         private void slaveTryAttackingAnother(GameObject targetCharacter)
         {
-            var prevSlave = prevSelectedCharacter.GetComponent<Slave>();
-            var prevSelectedCharMaster = prevSlave.getMaster();
-            var selectedCharMaster = targetCharacter.GetComponent<Slave>().getMaster();
+            var prevSelectedSlave = prevSelectedCharacter.GetComponent<Slave>();
+            var masterOfPrevSelectedChar = prevSelectedSlave.getMaster();
+            var masterOfSelectedChar = targetCharacter.GetComponent<Slave>().getMaster();
 
             // Only deal damage if 2 slaves aren't from the same master and prev slave can attack because target is within its attack range
-            if (prevSelectedCharMaster != selectedCharMaster && prevSlave.canAttackAtTile(targetCharacter.transform.parent.gameObject))
+            if (masterOfPrevSelectedChar != masterOfSelectedChar && prevSelectedSlave.canAttackAtTile(targetCharacter.transform.parent.gameObject))
             {
                 var ammountOfDamage = prevSelectedCharacter.GetComponent<Slave>().getAttackDamage();
                 targetCharacter.GetComponent<Health>().takeDamage(ammountOfDamage);
@@ -131,8 +133,6 @@ namespace MyGame
         public void OnSummoningSlave(GameObject newSlave)
         {
             newSlave.GetComponent<Slave>().selectedChar += OnCharacterSelect;
-
-            switchTurn();
         }
 
         private void slaveAttackProcessing(GameObject targetCharacter)

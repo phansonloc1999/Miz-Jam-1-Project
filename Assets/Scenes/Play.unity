@@ -405,6 +405,7 @@ MonoBehaviour:
   player2Master: {fileID: 130914545}
   map: {fileID: 612288093}
   prevSelectedCharacter: {fileID: 0}
+  diceManager: {fileID: 932924292}
 --- !u!114 &932924292
 MonoBehaviour:
   m_ObjectHideFlags: 0

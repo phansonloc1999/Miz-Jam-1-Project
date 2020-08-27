@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using DiceSystem;
 using Face = DiceSystem.Face;
+using System;
+
 public class DiceManager : MonoBehaviour
 {
     [SerializeField] private GameObject _dice;
     [SerializeField] private GameObject _dicePrefab;
+
     private DiceRoller _diceRoller;
-    private Face _face;
+    [SerializeField] private Face _face;
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
-        if(_dice == null)
+        if (_dice == null)
         {
             _dice = Instantiate(_dicePrefab);
         }
@@ -23,7 +26,8 @@ public class DiceManager : MonoBehaviour
 
     public void SetFace(Face face)
     {
-        if (face == Face.None) {
+        if (face == Face.None)
+        {
             return;
         }
         _face = face;
@@ -55,4 +59,15 @@ public class DiceManager : MonoBehaviour
         }
     }
     #endregion
+
+    public void StartRollingDice()
+    {
+        _diceRoller.Setup(new Vector3(-5, 0, 8));
+        _diceRoller.TossDice();
+    }
+
+    public DiceRoller getDiceRoller()
+    {
+        return _diceRoller;
+    }
 }

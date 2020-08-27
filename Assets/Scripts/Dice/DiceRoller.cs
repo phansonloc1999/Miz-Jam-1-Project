@@ -14,17 +14,19 @@ namespace DiceSystem
         [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private Dice _diceComponent;
         private bool _hasLanded;
-        private bool _thown;
+        private bool _thrown;
         private Face _face;
 
         public event Action<Face> OnDiceRollSuccessful;
+        public delegate void SummonDiceRollSuccessHandler();
+        public event SummonDiceRollSuccessHandler summoningDiceRollSuccess;
 
         private void Awake()
         {
             _rigidbody = gameObject.GetComponent<Rigidbody>();
             _diceComponent = gameObject.GetComponent<Dice>();
             _rigidbody.useGravity = false;
-            _thown = false;
+            _thrown = false;
             _hasLanded = false;
         }
 
@@ -34,7 +36,7 @@ namespace DiceSystem
             _rigidbody.useGravity = false;
             gameObject.SetActive(true);
             gameObject.transform.position = pos;
-            _thown = false;
+            _thrown = false;
             _hasLanded = false;
 
             //reset dice config
@@ -45,7 +47,7 @@ namespace DiceSystem
         public void TurnOff()
         {
             gameObject.SetActive(false);
-            _thown = false;
+            _thrown = false;
             _hasLanded = false;
             _rigidbody.useGravity = false;
         }
@@ -53,9 +55,9 @@ namespace DiceSystem
         public void TossDice()
         {
             gameObject.SetActive(true);
-            if (!_thown && !_hasLanded)
+            if (!_thrown && !_hasLanded)
             {
-                _thown = true;
+                _thrown = true;
                 _rigidbody.useGravity = true;
                 _rigidbody.AddTorque(Random.Range(10, 500), Random.Range(10, 500), Random.Range(10, 500));
                 StartCoroutine(CheckDice());
@@ -64,9 +66,9 @@ namespace DiceSystem
 
         IEnumerator CheckDice()
         {
-            while(_thown && !_hasLanded)
+            while (_thrown && !_hasLanded)
             {
-                if (_rigidbody.IsSleeping() && _thown && !_hasLanded)
+                if (_rigidbody.IsSleeping() && _thrown && !_hasLanded)
                 {
                     _hasLanded = true;
                     _rigidbody.useGravity = false;
@@ -75,6 +77,8 @@ namespace DiceSystem
                     if (face != Face.None)
                     {
                         OnDiceRollSuccessful?.Invoke(face);
+                        summoningDiceRollSuccess.Invoke();
+                        Debug.Log("Called");
                     }
                     yield break;
                 }
@@ -83,6 +87,6 @@ namespace DiceSystem
         }
         #endregion
 
-        
+
     }
 }
