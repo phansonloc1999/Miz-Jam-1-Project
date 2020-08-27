@@ -27,7 +27,8 @@ namespace MyGame
 
         [SerializeField] private GameObject prevSelectedCharacter;
 
-        [SerializeField] private DiceManager diceManager;
+        [SerializeField] private DiceManager diceManager1;
+        [SerializeField] private DiceManager diceManager2;
 
         private void Start()
         {
@@ -155,7 +156,7 @@ namespace MyGame
             // Master attacks master?
             else if (prevSelectedCharacter.tag == "Master" && targetCharacter.tag == "Master")
             {
-                // TODO: Insert code here
+                StartCoroutine(masterAttackMaster());
             }
         }
 

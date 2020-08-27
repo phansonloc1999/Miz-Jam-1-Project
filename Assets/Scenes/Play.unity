@@ -203,6 +203,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bbe867077d40294fb1a586372418c94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &221688957
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 221688959}
+  - component: {fileID: 221688958}
+  m_Layer: 0
+  m_Name: DiceManager2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &221688958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221688957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed33bda42bbb32d48adc6760461b4276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dice: {fileID: 0}
+  _dicePrefab: {fileID: 2642005092050254638, guid: 8953d87e4f3e71345a6697d8e17c1253, type: 3}
+  _face: 0
+--- !u!4 &221688959
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221688957}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 110.03245, y: 234.90988, z: -44.14476}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,7 +411,6 @@ GameObject:
   m_Component:
   - component: {fileID: 932924290}
   - component: {fileID: 932924291}
-  - component: {fileID: 932924292}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -405,14 +450,32 @@ MonoBehaviour:
   player2Master: {fileID: 130914545}
   map: {fileID: 612288093}
   prevSelectedCharacter: {fileID: 0}
-  diceManager: {fileID: 932924292}
---- !u!114 &932924292
+  diceManager1: {fileID: 1260333106}
+  diceManager2: {fileID: 221688958}
+--- !u!1 &1260333105
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1260333107}
+  - component: {fileID: 1260333106}
+  m_Layer: 0
+  m_Name: DiceManager1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1260333106
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 932924289}
+  m_GameObject: {fileID: 1260333105}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed33bda42bbb32d48adc6760461b4276, type: 3}
@@ -420,6 +483,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dice: {fileID: 0}
   _dicePrefab: {fileID: 2642005092050254638, guid: 8953d87e4f3e71345a6697d8e17c1253, type: 3}
+  _face: 0
+--- !u!4 &1260333107
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260333105}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 110.03245, y: 234.90988, z: -44.14476}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2084040525
 PrefabInstance:
   m_ObjectHideFlags: 0

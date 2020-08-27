@@ -11,21 +11,21 @@ namespace MyGame
 
         private void trySummoningSlaveWithDice(Master master)
         {
-            diceManager.StartRollingDice();
+            diceManager1.StartRollingDiceLeft();
 
             this.currentMaster = master;
 
-            diceManager.getDiceRoller().summoningDiceRollSuccess += OnSummoningDiceRollSuccess;
+            diceManager1.getDiceRoller().diceRolledSuccessfully += OnSummoningDiceRollSuccess;
         }
 
         private void OnSummoningDiceRollSuccess()
         {
-            var resultFace = diceManager.GetFace();
+            var resultFace = diceManager1.GetFace();
 
             if (resultFace == Face.One || resultFace == Face.Two || resultFace == Face.Three)
                 currentMaster.summonSlaveAt(Random.Range(0, player1Master.SlavesData.Count), 1, 1);
 
-            diceManager.getDiceRoller().summoningDiceRollSuccess -= OnSummoningDiceRollSuccess;
+            diceManager1.getDiceRoller().diceRolledSuccessfully -= OnSummoningDiceRollSuccess;
 
             switchTurn();
         }

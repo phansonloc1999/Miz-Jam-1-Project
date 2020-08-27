@@ -15,11 +15,12 @@ namespace DiceSystem
         [SerializeField] private Dice _diceComponent;
         private bool _hasLanded;
         private bool _thrown;
+        private bool _finishedRolling;
         private Face _face;
 
         public event Action<Face> OnDiceRollSuccessful;
-        public delegate void SummonDiceRollSuccessHandler();
-        public event SummonDiceRollSuccessHandler summoningDiceRollSuccess;
+        public delegate void DiceRollSuccessHandler();
+        public event DiceRollSuccessHandler diceRolledSuccessfully;
 
         private void Awake()
         {
@@ -38,6 +39,7 @@ namespace DiceSystem
             gameObject.transform.position = pos;
             _thrown = false;
             _hasLanded = false;
+            _finishedRolling = false;
 
             //reset dice config
             _rigidbody.velocity = Vector3.zero;
@@ -76,14 +78,20 @@ namespace DiceSystem
                     Face face = _diceComponent.GetFaceUp();
                     if (face != Face.None)
                     {
+                        _finishedRolling = true;
                         OnDiceRollSuccessful?.Invoke(face);
-                        summoningDiceRollSuccess.Invoke();
+                        diceRolledSuccessfully?.Invoke();
                         Debug.Log("Called");
                     }
                     yield break;
                 }
                 yield return null;
             }
+        }
+
+        public bool isRollingFinished()
+        {
+            return _finishedRolling;
         }
         #endregion
 

@@ -42,27 +42,18 @@ public class DiceManager : MonoBehaviour
     #region Test
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            _diceRoller.Setup(new Vector3(-5, 0, 8));
-            _diceRoller.TossDice();
-        }
-
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            _diceRoller.Setup(new Vector3(5, 0, 8));
-            _diceRoller.TossDice();
-        }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            _diceRoller.TurnOff();
-        }
     }
     #endregion
 
-    public void StartRollingDice()
+    public void StartRollingDiceLeft()
     {
         _diceRoller.Setup(new Vector3(-5, 0, 8));
+        _diceRoller.TossDice();
+    }
+
+    public void StartRollingDiceRight()
+    {
+        _diceRoller.Setup(new Vector3(5, 0, 8));
         _diceRoller.TossDice();
     }
 
