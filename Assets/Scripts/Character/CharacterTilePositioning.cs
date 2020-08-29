@@ -60,4 +60,9 @@ public class CharacterTilePositioning : MonoBehaviour
     {
         this.movementRanges = movementRanges;
     }
+
+    public List<MovementRange> getMovementRanges()
+    {
+        return movementRanges;
+    }
 }

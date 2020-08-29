@@ -1,13 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
+    private SpriteRenderer spriteRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -24,5 +27,15 @@ public class Tile : MonoBehaviour
         {
             selectedTile?.Invoke(this.gameObject);
         }
+    }
+
+    public void flash()
+    {
+        spriteRenderer.enabled = !spriteRenderer.enabled;
+    }
+
+    public void stopFlashing()
+    {
+        spriteRenderer.enabled = true;
     }
 }

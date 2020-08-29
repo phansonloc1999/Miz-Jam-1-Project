@@ -75,10 +75,17 @@ namespace MyGame
             if (prevSelectedCharacter == null)
             {
                 selectPrevCharacterProcessing(targetCharacter);
+
+                if (prevSelectedCharacter != null)
+                {
+                    map.flashPossibleMoveTiles(prevSelectedCharacter);
+                }
             }
             else if (prevSelectedCharacter != targetCharacter) // Did player select the same character twice?
             {
                 slaveAttackProcessing(targetCharacter);
+
+                map.stopFlashingTiles();
 
                 prevSelectedCharacter = null;
             }
@@ -89,6 +96,8 @@ namespace MyGame
             if (prevSelectedCharacter != null && selectedTile.transform.childCount == 0)
             {
                 prevSelectedCharacter.GetComponent<CharacterTilePositioning>().moveToTile(selectedTile);
+
+                map.stopFlashingTiles();
 
                 switchTurn();
                 prevSelectedCharacter = null;
@@ -115,7 +124,7 @@ namespace MyGame
             var masterOfPrevSelectedChar = prevSelectedSlave.getMaster();
             var masterOfSelectedChar = targetCharacter.GetComponent<Slave>().getMaster();
 
-            // Only deal damage if 2 slaves aren't from the same master and prev slave can attack because target is within its attack range
+            // If 2 slaves aren't from the same master and prev slave can attack because target is within its attack range
             if (masterOfPrevSelectedChar != masterOfSelectedChar && prevSelectedSlave.canAttackAtTile(targetCharacter.transform.parent.gameObject))
             {
                 var ammountOfDamage = prevSelectedCharacter.GetComponent<Slave>().getAttackDamage();
@@ -125,6 +134,7 @@ namespace MyGame
                 Debug.Log(message);
 
                 switchTurn();
+                map.stopFlashingTiles();
             }
         }
 
@@ -143,16 +153,19 @@ namespace MyGame
             {
                 slaveTryAttackingAnother(targetCharacter);
             }
+
             // Slave attacks master?
             else if (prevSelectedCharacter.tag == "Slave" && targetCharacter.tag == "Master")
             {
                 var prevSelectedSlave = prevSelectedCharacter.GetComponent<Slave>();
+
                 // Slave attacks enemy master and the target is within its attack range?
                 if (prevSelectedSlave.getMaster() != targetCharacter && prevSelectedSlave.canAttackAtTile(targetCharacter.transform.parent.gameObject))
                 {
                     targetCharacter.GetComponent<Health>().takeDamage(prevSelectedSlave.getAttackDamage());
                 }
             }
+
             // Master attacks master?
             else if (prevSelectedCharacter.tag == "Master" && targetCharacter.tag == "Master")
             {
@@ -171,6 +184,7 @@ namespace MyGame
                    )
                     prevSelectedCharacter = targetCharacter;
             }
+
             else if (targetCharacter.tag == "Master")
             {
                 if (

@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Timers;
 using UnityEngine;
 
 public struct TilePosition
@@ -27,6 +29,11 @@ public class Map : MonoBehaviour
     [Header("Tile size")]
     public float TILE_WIDTH = 1;
     public float TILE_HEIGHT = 1;
+
+    [SerializeField] private bool isFlashingTiles = false;
+    private List<Tile> flashTileScripts;
+
+    private IEnumerator flashTilesCoroutine;
 
     public void initTiles()
     {
@@ -59,5 +66,56 @@ public class Map : MonoBehaviour
             }
         }
         return new TilePosition(-1, -1);
+    }
+
+    public void flashPossibleMoveTiles(GameObject selectedChar)
+    {
+        var movementRanges = selectedChar.GetComponent<CharacterTilePositioning>().getMovementRanges();
+        var currentSelectedCharTilePos = getPositionOfTile(selectedChar.transform.parent.gameObject);
+        var flashTileScripts = new List<Tile>();
+        foreach (var range in movementRanges)
+        {
+            try
+            {
+                var tile = tiles[currentSelectedCharTilePos.row + range.rowOffset, currentSelectedCharTilePos.column + range.columnOffset];
+                if (tile.transform.childCount == 0)
+                    flashTileScripts.Add(tile.GetComponent<Tile>());
+            }
+            catch (SystemException)
+            {
+
+            }
+        }
+
+        flashTilesCoroutine = flashingTiles(currentSelectedCharTilePos, movementRanges, flashTileScripts);
+        StartCoroutine(flashTilesCoroutine);
+    }
+
+    private IEnumerator flashingTiles(TilePosition currentSelectedCharTilePos, List<MovementRange> movementRanges, List<Tile> flashTileScripts)
+    {
+        isFlashingTiles = true;
+        this.flashTileScripts = flashTileScripts;
+
+        var SECOND_INTERVAL = 1.0f;
+        while (isFlashingTiles)
+        {
+            foreach (var tileScript in this.flashTileScripts)
+            {
+                tileScript.flash();
+            }
+            yield return new WaitForSeconds(SECOND_INTERVAL);
+        }
+    }
+
+    public void stopFlashingTiles()
+    {
+        isFlashingTiles = false;
+
+        foreach (var tileScript in flashTileScripts)
+        {
+            tileScript.stopFlashing();
+        }
+
+        StopCoroutine(flashTilesCoroutine);
     }
 }
