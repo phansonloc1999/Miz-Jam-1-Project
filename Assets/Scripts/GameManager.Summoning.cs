@@ -25,7 +25,7 @@ namespace MyGame
             var resultFace = diceManager1.GetFace();
 
             if (resultFace == Face.One || resultFace == Face.Two || resultFace == Face.Three)
-                currentMaster.summonSlaveAt(Random.Range(0, player1Master.SlavesData.Count), 1, 1);
+                currentMaster.summonSlaveAt(Random.Range(0, player1Master.GetSlaveDataSetCount()), 1, 1);
 
             diceManager1.getDiceRoller().diceRolledSuccessfully -= OnSummoningDiceRollSuccess;
 
