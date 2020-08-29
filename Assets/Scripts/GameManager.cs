@@ -171,6 +171,8 @@ namespace MyGame
                 if (prevSelectedSlave.getMaster() != targetCharacter && prevSelectedSlave.canAttackAtTile(targetCharacter.transform.parent.gameObject))
                 {
                     targetCharacter.GetComponent<Health>().takeDamage(prevSelectedSlave.getAttackDamage());
+
+                    switchTurn();
                 }
             }
 

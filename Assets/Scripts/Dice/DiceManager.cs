@@ -31,7 +31,6 @@ public class DiceManager : MonoBehaviour
             return;
         }
         _face = face;
-        Debug.Log(_face);
     }
 
     public Face GetFace()
