@@ -68,18 +68,18 @@ public class Map : MonoBehaviour
         return new TilePosition(-1, -1);
     }
 
-    public void flashPossibleMoveTiles(GameObject selectedChar)
+    public void flashTargetTilesAndChars(GameObject selectedChar)
     {
         var movementRanges = selectedChar.GetComponent<CharacterTilePositioning>().getMovementRanges();
         var currentSelectedCharTilePos = getPositionOfTile(selectedChar.transform.parent.gameObject);
-        var flashTileScripts = new List<Tile>();
+        var tileScriptsToFlash = new List<Tile>();
         foreach (var range in movementRanges)
         {
             try
             {
                 var tile = tiles[currentSelectedCharTilePos.row + range.rowOffset, currentSelectedCharTilePos.column + range.columnOffset];
                 if (tile.transform.childCount == 0)
-                    flashTileScripts.Add(tile.GetComponent<Tile>());
+                    tileScriptsToFlash.Add(tile.GetComponent<Tile>());
             }
             catch (SystemException)
             {
@@ -87,11 +87,34 @@ public class Map : MonoBehaviour
             }
         }
 
-        flashTilesCoroutine = flashingTiles(currentSelectedCharTilePos, movementRanges, flashTileScripts);
+        var slaveScript = selectedChar.GetComponent<Slave>();
+        if (slaveScript != null)
+        {
+            var attackRanges = slaveScript.GetAttackRanges();
+            if (attackRanges.Count > 0)
+                foreach (var range in attackRanges)
+                {
+                    try
+                    {
+                        var tile = tiles[currentSelectedCharTilePos.row + range.rowOffset, currentSelectedCharTilePos.column + range.columnOffset];
+                        var tileScript = tile.GetComponent<Tile>();
+
+                        // If tile has a child slave or master gameobject and tilescript isn't in flashTileScripts yet
+                        if (tile.transform.childCount > 0 && !tileScriptsToFlash.Contains(tileScript))
+                            tileScriptsToFlash.Add(tileScript);
+                    }
+                    catch (System.Exception)
+                    {
+
+                    }
+                }
+        }
+
+        flashTilesCoroutine = flashingTilesAndChars(currentSelectedCharTilePos, movementRanges, tileScriptsToFlash);
         StartCoroutine(flashTilesCoroutine);
     }
 
-    private IEnumerator flashingTiles(TilePosition currentSelectedCharTilePos, List<MovementRange> movementRanges, List<Tile> flashTileScripts)
+    private IEnumerator flashingTilesAndChars(TilePosition currentSelectedCharTilePos, List<MovementRange> movementRanges, List<Tile> flashTileScripts)
     {
         isFlashingTiles = true;
         this.flashTileScripts = flashTileScripts;
@@ -102,6 +125,8 @@ public class Map : MonoBehaviour
             foreach (var tileScript in this.flashTileScripts)
             {
                 tileScript.flash();
+
+                tileScript.gameObject.GetComponentInChildren<CharacterFlashing>()?.Flash();
             }
             yield return new WaitForSeconds(SECOND_INTERVAL);
         }
@@ -114,6 +139,8 @@ public class Map : MonoBehaviour
         foreach (var tileScript in flashTileScripts)
         {
             tileScript.stopFlashing();
+
+            tileScript.gameObject.GetComponentInChildren<CharacterFlashing>()?.StopFlashing();
         }
 
         StopCoroutine(flashTilesCoroutine);

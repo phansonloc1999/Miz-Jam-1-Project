@@ -71,4 +71,10 @@ public class Slave : MonoBehaviour
         GetComponent<CharacterTilePositioning>().loadMovementRanges(data.movementRanges);
         GetComponent<Health>().loadMaxHealth(data.MAX_HEALTH);
     }
+
+
+    public List<AttackRange> GetAttackRanges()
+    {
+        return data.attackRanges;
+    }
 }

@@ -53,7 +53,7 @@ namespace MyGame
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && !ignoreUserInput)
             {
                 if (currentPlayerTurn == PLAYER_TURN.PLAYER_1)
                 {
@@ -84,7 +84,7 @@ namespace MyGame
 
                     if (prevSelectedCharacter != null)
                     {
-                        map.flashPossibleMoveTiles(prevSelectedCharacter);
+                        map.flashTargetTilesAndChars(prevSelectedCharacter);
                     }
                 }
                 else if (prevSelectedCharacter != targetCharacter) // Did player select the same character twice?
@@ -107,6 +107,7 @@ namespace MyGame
                 map.stopFlashingTiles();
 
                 if (moved) switchTurn();
+
                 prevSelectedCharacter = null;
             }
         }

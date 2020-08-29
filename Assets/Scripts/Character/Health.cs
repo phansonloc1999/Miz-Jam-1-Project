@@ -21,6 +21,8 @@ public class Health : MonoBehaviour
         {
             dead?.Invoke(gameObject);
 
+            Debug.LogError(name + "is dead!!");
+
             Destroy(gameObject);
         }
     }

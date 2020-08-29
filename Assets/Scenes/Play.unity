@@ -197,7 +197,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
   m_PrefabInstance: {fileID: 130914544}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 671713673}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bbe867077d40294fb1a586372418c94, type: 3}
@@ -397,11 +397,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 195035902928457889, guid: ede72c1f424042749a01bc8c8060ec65, type: 3}
-  NUM_OF_TILE_ROW: 5
-  NUM_OF_TILE_COLUMN: 5
+  NUM_OF_TILE_ROW: 10
+  NUM_OF_TILE_COLUMN: 10
   TILE_WIDTH: 1
   TILE_HEIGHT: 1
   isFlashingTiles: 0
+--- !u!1 &671713673 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7790672484328788741, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
+  m_PrefabInstance: {fileID: 130914544}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &671713674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671713673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb2a184dad6ebb44892774e452d5db6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &932924289
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,6 +472,7 @@ MonoBehaviour:
   prevSelectedCharacter: {fileID: 0}
   diceManager1: {fileID: 1260333106}
   diceManager2: {fileID: 221688958}
+  ignoreUserInput: 0
 --- !u!1 &1260333105
 GameObject:
   m_ObjectHideFlags: 0
