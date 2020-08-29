@@ -165,7 +165,7 @@ PrefabInstance:
     - target: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
       propertyPath: slaveDataSet
       value: 
-      objectReference: {fileID: 11400000, guid: 585d187443a440044a403e88b3b366d8, type: 2}
+      objectReference: {fileID: 11400000, guid: 888bfd6c15c89da4ba016930abf02868, type: 2}
     - target: {fileID: 7790672484328788740, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -401,6 +401,7 @@ MonoBehaviour:
   NUM_OF_TILE_COLUMN: 5
   TILE_WIDTH: 1
   TILE_HEIGHT: 1
+  isFlashingTiles: 0
 --- !u!1 &932924289
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,6 +445,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 701d36c76cbc5d14abaf78ba33bbb664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1VictoryTimes: 0
+  player2VictoryTimes: 0
   player1Positioning: {fileID: 0}
   player2Positioning: {fileID: 0}
   player1Master: {fileID: 2084040526}
@@ -540,7 +543,7 @@ PrefabInstance:
     - target: {fileID: -6651009851655310103, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
       propertyPath: slaveDataSet
       value: 
-      objectReference: {fileID: 11400000, guid: c6c75cdcdcf602841b5c308ade291e26, type: 2}
+      objectReference: {fileID: 11400000, guid: 888bfd6c15c89da4ba016930abf02868, type: 2}
     - target: {fileID: 7790672484328788740, guid: 74211a1ea3d629e4a8763f9c599ddcaa, type: 3}
       propertyPath: m_RootOrder
       value: 3

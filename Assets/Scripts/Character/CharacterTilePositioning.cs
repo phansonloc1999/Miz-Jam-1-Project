@@ -34,13 +34,15 @@ public class CharacterTilePositioning : MonoBehaviour
         transform.localRotation = Quaternion.Euler(Vector3.zero);
     }
 
-    public void moveToTile(GameObject newTile)
+    public bool movedToTile(GameObject newTile)
     {
         if (isWithinMovementRange(newTile))
         {
             transform.parent = newTile.transform;
             transform.localPosition = new Vector3(0, 0, -0.5f);
+            return true;
         }
+        return false;
     }
 
     private bool isWithinMovementRange(GameObject newTile)

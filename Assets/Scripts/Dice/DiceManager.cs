@@ -61,4 +61,9 @@ public class DiceManager : MonoBehaviour
     {
         return _diceRoller;
     }
+
+    public void turnOffDice()
+    {
+        _diceRoller.TurnOff();
+    }
 }

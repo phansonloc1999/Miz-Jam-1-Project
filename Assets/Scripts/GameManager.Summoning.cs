@@ -11,6 +11,8 @@ namespace MyGame
 
         private void trySummoningSlaveWithDice(Master master)
         {
+            ignoreUserInput = true;
+
             diceManager1.StartRollingDiceLeft();
 
             this.currentMaster = master;
@@ -28,6 +30,18 @@ namespace MyGame
             diceManager1.getDiceRoller().diceRolledSuccessfully -= OnSummoningDiceRollSuccess;
 
             switchTurn();
+
+            StartCoroutine(turnOffDices());
+        }
+
+        private IEnumerator turnOffDices()
+        {
+            yield return new WaitForSeconds(2.0f);
+
+            diceManager1.turnOffDice();
+            diceManager2.turnOffDice();
+
+            ignoreUserInput = false;
         }
     }
 }

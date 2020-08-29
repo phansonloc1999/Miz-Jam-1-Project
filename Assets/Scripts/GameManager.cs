@@ -30,6 +30,8 @@ namespace MyGame
         [SerializeField] private DiceManager diceManager1;
         [SerializeField] private DiceManager diceManager2;
 
+        [SerializeField] private bool ignoreUserInput;
+
         private void Start()
         {
             map.initTiles();
@@ -45,6 +47,8 @@ namespace MyGame
             player2Positioning.spawnAtTile(map.getTileAt(2, 2));
 
             addOnSelectEventHandlers();
+
+            ignoreUserInput = false;
         }
 
         private void Update()
@@ -72,22 +76,25 @@ namespace MyGame
 
         private void OnCharacterSelect(GameObject targetCharacter)
         {
-            if (prevSelectedCharacter == null)
+            if (!ignoreUserInput)
             {
-                selectPrevCharacterProcessing(targetCharacter);
-
-                if (prevSelectedCharacter != null)
+                if (prevSelectedCharacter == null)
                 {
-                    map.flashPossibleMoveTiles(prevSelectedCharacter);
+                    selectPrevCharacterProcessing(targetCharacter);
+
+                    if (prevSelectedCharacter != null)
+                    {
+                        map.flashPossibleMoveTiles(prevSelectedCharacter);
+                    }
                 }
-            }
-            else if (prevSelectedCharacter != targetCharacter) // Did player select the same character twice?
-            {
-                slaveAttackProcessing(targetCharacter);
+                else if (prevSelectedCharacter != targetCharacter) // Did player select the same character twice?
+                {
+                    slaveAttackProcessing(targetCharacter);
 
-                map.stopFlashingTiles();
+                    map.stopFlashingTiles();
 
-                prevSelectedCharacter = null;
+                    prevSelectedCharacter = null;
+                }
             }
         }
 
@@ -95,11 +102,11 @@ namespace MyGame
         {
             if (prevSelectedCharacter != null && selectedTile.transform.childCount == 0)
             {
-                prevSelectedCharacter.GetComponent<CharacterTilePositioning>().moveToTile(selectedTile);
+                var moved = prevSelectedCharacter.GetComponent<CharacterTilePositioning>().movedToTile(selectedTile);
 
                 map.stopFlashingTiles();
 
-                switchTurn();
+                if (moved) switchTurn();
                 prevSelectedCharacter = null;
             }
         }
